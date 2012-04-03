@@ -1,0 +1,17 @@
+name: MultiLanguage
+main: me.plugin.multilanguage.MultiLanguage
+version: 1.0.0
+authors: [Anerach, TheMammoth]
+description: >
+            A multi-language support plugin for bukkit.
+commands:
+    language:
+        description: Shows basic language information
+        aliases: lang
+        usage: /<command>
+    setlang:
+        description: Changes your default language
+        usage: /<command> <language>
+    langlist:
+        description: Shows a list with all the available languages
+        usage: /<command>
