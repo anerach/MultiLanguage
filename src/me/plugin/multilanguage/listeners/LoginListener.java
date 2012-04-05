@@ -25,6 +25,5 @@ public class LoginListener implements Listener {
 	    Language playerLanguage = plugin.playerLanguages.get(player.getName());
 	    
 	    player.sendMessage(ChatColor.GOLD + "Welcome " + player.getName() + ". Your concurrent language is " + playerLanguage.getFullName());
-	    player.sendMessage(ChatColor.GOLD + "You can change your language by using /setlang <language>");
 	}
 }

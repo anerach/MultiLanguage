@@ -100,28 +100,28 @@ public class LanguageListener implements Listener {
 			sendMessage("monsters.enderdragon", player);
 			event.setDeathMessage(null);
 		} else if(deathCause == DamageCause.DROWNING) {
-			sendMessage("monsters.drowning", player);
+			sendMessage("deaths.drowning", player);
 			event.setDeathMessage(null);
 		} else if(deathCause == DamageCause.SUFFOCATION) {
-			sendMessage("monsters.suffocation", player);
+			sendMessage("deaths.suffocation", player);
 			event.setDeathMessage(null);
 		} else if(deathCause == DamageCause.SUICIDE) {
-			sendMessage("monsters.suicide", player);
+			sendMessage("deaths.suicide", player);
 			event.setDeathMessage(null);
 		} else if(deathCause == DamageCause.FALL) {
-			sendMessage("monsters.fall", player);
+			sendMessage("deaths.fall", player);
 			event.setDeathMessage(null);
 		} else if(deathCause == DamageCause.VOID) {
-			sendMessage("monsters.void", player);
+			sendMessage("deaths.void", player);
 			event.setDeathMessage(null);
 		} else if(deathCause == DamageCause.LAVA) {
-			sendMessage("monsters.lava", player);
+			sendMessage("deaths.lava", player);
 			event.setDeathMessage(null);
 		} else if(deathCause == DamageCause.FIRE) {
-			sendMessage("monsters.fire", player);
+			sendMessage("deaths.fire", player);
 			event.setDeathMessage(null);
 		} else if(deathCause == DamageCause.CONTACT) {
-			sendMessage("monsters.cactus", player);
+			sendMessage("deaths.cactus", player);
 			event.setDeathMessage(null);
 		}
 	}

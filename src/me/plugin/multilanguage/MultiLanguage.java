@@ -144,21 +144,19 @@ public class MultiLanguage extends JavaPlugin {
 		log.info("Loading player languages");
 		loadLanguages();
 		
-		/* BukkitDev project hasn't been created yet
 		log.info("Checking for updates");
+		currentVersion = getDescription().getVersion();
 		newVersion = loadLatestVersion(currentVersion);
 		
 		doubleCurrentVersion = Double.valueOf(currentVersion.replaceFirst("\\.", ""));
 		doubleNewVersion = Double.valueOf(newVersion.replaceFirst("\\.", ""));
 		
 		if(doubleNewVersion > doubleCurrentVersion) {
-			log.warning("LanguageCraft v" + newVersion + " is released! You're using LanguageCraft v" + currentVersion);
-			log.warning("Update LanguageCraft at http://dev.bukkit.org/server-mods/languagecraft/");
+			log.warning("MultiLanguage v" + newVersion + " is released! You're using MultiLanguage v" + currentVersion);
+			log.warning("Update LanguageCraft at http://dev.bukkit.org/server-mods/multilanguage/");
 		}
 		
-		*/
-		
-		log.info("Starting LanguageCraft");
+		log.info("Starting MultiLanguage");
 		getCommand("setlang").setExecutor(new CommandSet(this));
 		getCommand("langlist").setExecutor(new CommandList(this));
 
@@ -187,7 +185,7 @@ public class MultiLanguage extends JavaPlugin {
 	
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args){
     	Player player = null;
-		
+    	
 		if (sender instanceof Player)
 			player = (Player) sender;
 		

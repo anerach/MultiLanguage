@@ -1,6 +1,6 @@
 name: MultiLanguage
 main: me.plugin.multilanguage.MultiLanguage
-version: 1.0.0
+version: 1.0.1
 authors: [Anerach, TheMammoth]
 description: >
             A multi-language support plugin for bukkit.

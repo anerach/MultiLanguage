@@ -22,7 +22,7 @@ public enum Language {
 	public static Language getLanguage(String str) {
 		if(str.equalsIgnoreCase("english") || str.equalsIgnoreCase("eng"))
 			return Language.ENGLISH;
-		else if(str.equalsIgnoreCase("dutch") || str.equalsIgnoreCase("nl"))
+		else if(str.equalsIgnoreCase("dutch") || str.equalsIgnoreCase("nederlands") || str.equalsIgnoreCase("nl"))
 			return Language.DUTCH;
 		
 		return null;

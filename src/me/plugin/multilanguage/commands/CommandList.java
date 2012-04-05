@@ -30,7 +30,7 @@ public class CommandList implements CommandExecutor {
 			return true;
 		}
 		
-		if(args.length > 0)
+		if(args.length != 0)
 			return false;
 		
 		player.sendMessage(ChatColor.DARK_RED + "- Available Languages -");

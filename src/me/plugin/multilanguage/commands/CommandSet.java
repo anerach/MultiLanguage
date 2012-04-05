@@ -30,7 +30,7 @@ public class CommandSet implements CommandExecutor {
 			return true;
 		}
 		
-		if(args.length > 1 || args.length < 1)
+		if(args.length != 1)
 			return false;
 		
 		Language newLang = Language.getLanguage(args[0]);
