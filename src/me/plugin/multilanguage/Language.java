@@ -2,7 +2,8 @@ package me.plugin.multilanguage;
 
 public enum Language {
 	ENGLISH("English", "eng"),
-	DUTCH("Dutch", "nl");
+	DUTCH("Dutch", "nl"),
+	SPANISH("Spanish", "es");
 	
 	String fullName;
 	String shortName;
@@ -24,6 +25,8 @@ public enum Language {
 			return Language.ENGLISH;
 		else if(str.equalsIgnoreCase("dutch") || str.equalsIgnoreCase("nederlands") || str.equalsIgnoreCase("nl"))
 			return Language.DUTCH;
+		else if(str.equalsIgnoreCase("spanish") || str.equalsIgnoreCase("espanol") || str.equalsIgnoreCase("es"))
+			return Language.SPANISH;
 		
 		return null;
 	}
