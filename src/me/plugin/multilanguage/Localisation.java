@@ -1,6 +1,9 @@
 package me.plugin.multilanguage;
 
 import java.io.File;
+import java.util.HashMap;
+import java.util.Set;
+import java.util.Map.Entry;
 
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -8,7 +11,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
 public class Localisation {
-	public FileConfiguration languageConfig;
+	private FileConfiguration languageConfig;
 	
 	public Localisation(MultiLanguage plugin, Language language) {
 		String lang = language.getFullName().toLowerCase();
@@ -17,10 +20,18 @@ public class Localisation {
 	}
 	
 	public String getMessage(String message) {
-		return getMessage(message, null);
+		return getMessage(message, null, null);
 	}
 	
 	public String getMessage(String message, Player player) {
+		return getMessage(message, player, null);
+	}
+	
+	public String getMessage(String message, HashMap<String, String> args) {
+		return getMessage(message, null, args);
+	}
+	
+	public String getMessage(String message, Player player, HashMap<String, String> args) {
 		String msg =  languageConfig.getString(message);
 		
 		msg = msg.replaceAll("&0", ChatColor.BLACK.toString());
@@ -46,8 +57,17 @@ public class Localisation {
 		msg = msg.replaceAll("&o", ChatColor.ITALIC.toString());
 		msg = msg.replaceAll("&r", ChatColor.RESET.toString());
 		
+		if(args != null) {
+			Set<Entry<String, String>> argSet = args.entrySet();
+			for (Entry<String, String> arg : argSet) {
+		    	msg = msg.replaceAll("\\{" + arg.getKey() + "}", arg.getValue());
+		    }
+		}
+		
 		if(player != null) {
 			msg = msg.replaceAll("\\{player}", player.getName());
+			msg = msg.replaceAll("\\{level}", Integer.toString(player.getLevel()));
+			msg = msg.replaceAll("\\{exp}", Integer.toString(player.getTotalExperience()));
 			if(player.getKiller() != null)
 				msg = msg.replaceAll("\\{killer}", player.getKiller().getName());
 		}

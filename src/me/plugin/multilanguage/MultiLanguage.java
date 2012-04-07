@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.logging.Logger;
 
@@ -80,27 +81,61 @@ public class MultiLanguage extends JavaPlugin {
 		if(!languageFiles.exists())
 			languageFiles.mkdirs();
 		
+		ArrayList<String> languages = new ArrayList<String>();
+		languages.add("english.yml");
+		languages.add("dutch.yml");
+		languages.add("spanish.yml");
+		languages.add("danish.yml");
+		
+		for(String language : languages) {
+			try {
+				File file = new File(languageFiles, language);
+				if(!file.exists()) {
+					FileConfiguration config = YamlConfiguration.loadConfiguration(file);
+					FileConfiguration ymlConfig = YamlConfiguration.loadConfiguration(getResource("resources/" + language));
+					config.setDefaults(ymlConfig);
+					config.options().copyDefaults(true);
+					config.save(file);
+				}
+		    } catch (IOException e) {
+		        e.printStackTrace();
+		    }
+		}
+		/*
 		File englishFile = new File(languageFiles, "english.yml");
 		File dutchFile = new File(languageFiles, "dutch.yml");
+		File spanishFile = new File(languageFiles, "spanish.yml");
+		File danishFile = new File(languageFiles, "danish.yml");
 		
 		FileConfiguration englishConfig = YamlConfiguration.loadConfiguration(englishFile);
 		FileConfiguration dutchConfig = YamlConfiguration.loadConfiguration(dutchFile);
+		FileConfiguration spanishConfig = YamlConfiguration.loadConfiguration(spanishFile);
+		FileConfiguration danishConfig = YamlConfiguration.loadConfiguration(danishFile);
 		
 		YamlConfiguration englishYmlConfig = YamlConfiguration.loadConfiguration(getResource("resources/english.yml"));
 		YamlConfiguration dutchYmlConfig = YamlConfiguration.loadConfiguration(getResource("resources/dutch.yml"));
+		YamlConfiguration spanishYmlConfig = YamlConfiguration.loadConfiguration(getResource("resources/spanish.yml"));
+		YamlConfiguration danishYmlConfig = YamlConfiguration.loadConfiguration(getResource("resources/danish.yml"));
 		
 		englishConfig.setDefaults(englishYmlConfig);
 		dutchConfig.setDefaults(dutchYmlConfig);
+		spanishConfig.setDefaults(spanishYmlConfig);
+		danishConfig.setDefaults(danishYmlConfig);
 		
 		englishConfig.options().copyDefaults(true);
 		dutchConfig.options().copyDefaults(true);
+		spanishConfig.options().copyDefaults(true);
+		danishConfig.options().copyDefaults(true);
 		
 		try {
 			englishConfig.save(englishFile);
 			dutchConfig.save(dutchFile);
+			spanishConfig.save(spanishFile);
+			danishConfig.save(danishFile);
 	    } catch (IOException e) {
 	        e.printStackTrace();
 	    }
+	    */
 	}
 	
 	public void saveLanguages() {
