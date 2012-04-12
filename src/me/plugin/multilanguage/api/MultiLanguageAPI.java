@@ -1,23 +1,68 @@
-package me.plugin.multilanguage;
+package me.plugin.multilanguage.api;
 
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
-import java.util.Set;
 import java.util.Map.Entry;
+import java.util.Set;
 
+import me.plugin.multilanguage.Language;
+import me.plugin.multilanguage.MultiLanguage;
+
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
-public class Localisation {
+public class MultiLanguageAPI {
+	private MultiLanguage plugin;
+	private File localisationDirectory;
+	private File localisationFile;
 	private FileConfiguration languageConfig;
-	private String lang;
+	private File defaultLanguage;
+	private HashMap<String, File> languages = new HashMap<String, File>();
 	
-	public Localisation(MultiLanguage plugin, Language language) {
-		this.lang = language.name().toLowerCase();
-		File languageFile = new File(plugin.getDataFolder() + "/languages", lang + ".yml");
-		languageConfig = YamlConfiguration.loadConfiguration(languageFile);
+	public MultiLanguageAPI(String externPlugin) {
+		this.plugin = (MultiLanguage) Bukkit.getServer().getPluginManager().getPlugin("MultiLanguage");
+		this.localisationDirectory = new File(plugin.getDataFolder() + "/plugins/" + externPlugin);
+		this.defaultLanguage = new File(localisationDirectory, "english.yml");
+		
+		if(!localisationDirectory.exists())
+			localisationDirectory.mkdirs();
+	}
+	
+	public void addLanguage(Language language, InputStream resource) {
+		addLanguage(language, resource, false);
+	}
+	
+	public void addLanguage(Language language, InputStream resource, boolean defaultLang) {
+		File langFile = new File(localisationDirectory, language.name().toLowerCase() + ".yml");
+		FileConfiguration langConfig = YamlConfiguration.loadConfiguration(langFile);
+		YamlConfiguration langYmlConfig = YamlConfiguration.loadConfiguration(resource);
+		
+		langConfig.setDefaults(langYmlConfig);
+		langConfig.options().copyDefaults(true);
+		
+		try {
+			langConfig.save(langFile);
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+		
+		languages.put(language.name().toLowerCase(), langFile);
+		
+		if(defaultLang)
+			defaultLanguage = langFile;
+	}
+	
+	public void loadPlayerLanguage(Player player) {
+		if(languages.containsKey(plugin.getPlayerLanguage(player))) {
+			this.localisationFile = languages.get(plugin.getPlayerLanguage(player));
+			this.languageConfig = YamlConfiguration.loadConfiguration(localisationFile);
+		} else
+			this.languageConfig = YamlConfiguration.loadConfiguration(defaultLanguage);
 	}
 	
 	public String getMessage(String message) {
@@ -69,10 +114,8 @@ public class Localisation {
 			msg = msg.replaceAll("\\{player}", player.getName());
 			msg = msg.replaceAll("\\{level}", Integer.toString(player.getLevel()));
 			msg = msg.replaceAll("\\{exp}", Integer.toString(player.getTotalExperience()));
-			msg = msg.replaceAll("\\{language}", Language.getLanguage(lang).getName());
-			if(player.getKiller() != null)
-				msg = msg.replaceAll("\\{killer}", player.getKiller().getName());
 		}
+		
 		return msg;
 	}
 }

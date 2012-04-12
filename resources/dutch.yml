@@ -1,4 +1,5 @@
-message:
+﻿message:
+    language: "&Welkom {player}. Jou taal is ingestelt op {language}"
     login: "&e{player} is ingelogd"
     logout: "&e{player} is uitgelogd"
 deaths:

@@ -1,13 +1,14 @@
 name: MultiLanguage
 main: me.plugin.multilanguage.MultiLanguage
-version: 1.0.2
-authors: [Anerach, TheMammoth]
+version: 1.0.6
+author: Anerach
+dev-url: http://dev.bukkit.org/server-mods/multilanguage
 description: >
             A multi-language support plugin for bukkit.
 commands:
-    language:
+    multilanguage:
         description: Shows basic language information
-        aliases: lang
+        aliases: [lang, language, mlang]
         usage: /<command>
     setlang:
         description: Changes your default language

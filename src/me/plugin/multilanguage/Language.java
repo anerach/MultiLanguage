@@ -2,19 +2,21 @@ package me.plugin.multilanguage;
 
 public enum Language {
 	ENGLISH("English", "eng"),
-	DUTCH("Dutch", "nl"),
-	SPANISH("Spanish", "es"),
-	DANISH("Danish", "dk");
+	DUTCH("Nederlands", "nl"),
+	SPANISH("Espanol", "es"),
+	DANISH("Dansk", "dk"),
+	POLISH("Polski", "pl"),
+	ITALIAN("Italiano", "it");
 	
-	String fullName;
 	String shortName;
-	Language(String fullName, String shortName) {
-		this.fullName = fullName;
+	String name;
+	Language(String name, String shortName) {
 		this.shortName = shortName;
+		this.name = name;
 	}
 	
-	public String getFullName() {
-		return fullName;
+	public String getName() {
+		return name;
 	}
 	
 	public String getShortName() {
@@ -30,6 +32,10 @@ public enum Language {
 			return Language.SPANISH;
 		else if(str.equalsIgnoreCase("danish") || str.equalsIgnoreCase("dansk") || str.equalsIgnoreCase("es"))
 			return Language.DANISH;
+		else if(str.equalsIgnoreCase("polish") || str.equalsIgnoreCase("polski") || str.equalsIgnoreCase("pl"))
+			return Language.POLISH;
+		else if(str.equalsIgnoreCase("italian") || str.equalsIgnoreCase("italiano") || str.equalsIgnoreCase("it"))
+			return Language.ITALIAN;
 		
 		return null;
 	}

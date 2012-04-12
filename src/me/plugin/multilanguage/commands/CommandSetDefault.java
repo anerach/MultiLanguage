@@ -3,16 +3,15 @@ package me.plugin.multilanguage.commands;
 import me.plugin.multilanguage.Language;
 import me.plugin.multilanguage.MultiLanguage;
 
-import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class CommandList implements CommandExecutor {
+public class CommandSetDefault implements CommandExecutor {
 	MultiLanguage plugin;
 	
-	public CommandList(MultiLanguage plugin) {
+	public CommandSetDefault(MultiLanguage plugin) {
 		this.plugin = plugin;
 	}
 	
@@ -23,7 +22,7 @@ public class CommandList implements CommandExecutor {
 		if (sender instanceof Player)
 			player = (Player) sender;
 		
-		if(!cmd.getName().equalsIgnoreCase("langlist"))
+		if(!cmd.getName().equalsIgnoreCase("setdefault"))
 			return false;
 		
 		if (player == null) {
@@ -31,13 +30,19 @@ public class CommandList implements CommandExecutor {
 			return true;
 		}
 		
-		if(args.length != 0)
+		if(args.length != 1)
 			return false;
 		
-		player.sendMessage(ChatColor.DARK_RED + "- Available Languages -");
-		for(Language lang : Language.values())
-			player.sendMessage(ChatColor.GOLD + lang.name().toLowerCase() + " (" + lang.getShortName().toUpperCase() + ")");
+		Language newLang = Language.getLanguage(args[0]);
 		
+		if(newLang == null) {
+			player.sendMessage("The requested language doesn't exist.");
+			return true;
+		}
+		
+		plugin.getConfig().set("languages.default", newLang.name().toLowerCase().toLowerCase());
+		plugin.saveConfig();
+		player.sendMessage("You've changed the default language to " + newLang.name().toLowerCase());
 		return true;
 	}
 

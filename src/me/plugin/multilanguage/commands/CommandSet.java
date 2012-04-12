@@ -41,7 +41,7 @@ public class CommandSet implements CommandExecutor {
 		}
 		
 		plugin.playerLanguages.put(player.getName(), newLang);
-		player.sendMessage("You've changed your language to " + newLang.getFullName());
+		player.sendMessage("You've changed your language to " + newLang.name().toLowerCase());
 		return true;
 	}
 
