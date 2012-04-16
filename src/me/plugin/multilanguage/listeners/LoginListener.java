@@ -24,6 +24,6 @@ public class LoginListener implements Listener {
 			plugin.playerLanguages.put(player.getName(), Language.getLanguage(plugin.getConfig().getString("languages.default")));
 		    
 		Localisation localisation = new Localisation(plugin, plugin.playerLanguages.get(player.getName()));
-		player.sendMessage(localisation.getMessage("message.language"));
+		player.sendMessage(localisation.getMessage("message.language", player));
 	}
 }

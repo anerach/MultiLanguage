@@ -36,7 +36,7 @@ public class CommandList implements CommandExecutor {
 		
 		player.sendMessage(ChatColor.DARK_RED + "- Available Languages -");
 		for(Language lang : Language.values())
-			player.sendMessage(ChatColor.GOLD + lang.name().toLowerCase() + " (" + lang.getShortName().toUpperCase() + ")");
+			player.sendMessage(ChatColor.GOLD + lang.name().toLowerCase() + " (" + lang.getExtension().toUpperCase() + ")");
 		
 		return true;
 	}

@@ -81,8 +81,8 @@ public class MultiLanguage extends JavaPlugin {
 			languageFiles.mkdirs();
 		
 		for(Language lang : Language.values()) {
+			String language = lang.name().toLowerCase().toLowerCase() + ".yml";
 			try {
-				String language = lang.name().toLowerCase().toLowerCase() + ".yml";
 				File file = new File(languageFiles, language);
 				if(!file.exists()) {
 					FileConfiguration config = YamlConfiguration.loadConfiguration(file);
@@ -92,6 +92,7 @@ public class MultiLanguage extends JavaPlugin {
 					config.save(file);
 				}
 		    } catch (IOException e) {
+		    	log.severe("Unable to load language: " + language);
 		        e.printStackTrace();
 		    }
 		}

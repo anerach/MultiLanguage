@@ -69,7 +69,7 @@ public class Localisation {
 			msg = msg.replaceAll("\\{player}", player.getName());
 			msg = msg.replaceAll("\\{level}", Integer.toString(player.getLevel()));
 			msg = msg.replaceAll("\\{exp}", Integer.toString(player.getTotalExperience()));
-			msg = msg.replaceAll("\\{language}", Language.getLanguage(lang).getName());
+			msg = msg.replaceAll("\\{language}", lang);
 			if(player.getKiller() != null)
 				msg = msg.replaceAll("\\{killer}", player.getKiller().getName());
 		}
