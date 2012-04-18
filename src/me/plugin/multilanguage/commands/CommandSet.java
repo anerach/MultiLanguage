@@ -3,37 +3,22 @@ package me.plugin.multilanguage.commands;
 import me.plugin.multilanguage.Language;
 import me.plugin.multilanguage.MultiLanguage;
 
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class CommandSet implements CommandExecutor {
-	MultiLanguage plugin;
-	
+public class CommandSet extends MultiLanguageCommand {
 	public CommandSet(MultiLanguage plugin) {
-		this.plugin = plugin;
+		super(plugin);
 	}
 	
-	@Override
-	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
-		Player player = null;
-		
-		if (sender instanceof Player)
-			player = (Player) sender;
-		
-		if(!cmd.getName().equalsIgnoreCase("setlang"))
-			return false;
-		
-		if (player == null) {
-			sender.sendMessage("This command can only be run by a player");
+	public boolean execute(Player player, Command cmd, String[] args) {
+		if(args.length != 2) {
+			player.sendMessage(ChatColor.WHITE + "/ml set <language>");
 			return true;
 		}
 		
-		if(args.length != 1)
-			return false;
-		
-		Language newLang = Language.getLanguage(args[0]);
+		Language newLang = Language.getLanguage(args[1]);
 		
 		if(newLang == null) {
 			player.sendMessage("The requested language doesn't exist.");
@@ -41,7 +26,7 @@ public class CommandSet implements CommandExecutor {
 		}
 		
 		plugin.playerLanguages.put(player.getName(), newLang);
-		player.sendMessage("You've changed your language to " + newLang.name().toLowerCase());
+		player.sendMessage("You've changed your language to " + newLang.getName());
 		return true;
 	}
 

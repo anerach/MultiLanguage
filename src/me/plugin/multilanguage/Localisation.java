@@ -11,13 +11,22 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
 public class Localisation {
-	private FileConfiguration languageConfig;
-	private String lang;
+	private final FileConfiguration languageConfig;
+	private final String lang;
+	private final Language language;
 	
 	public Localisation(MultiLanguage plugin, Language language) {
 		this.lang = language.name().toLowerCase();
+		this.language = language;
 		File languageFile = new File(plugin.getDataFolder() + "/languages", lang + ".yml");
 		languageConfig = YamlConfiguration.loadConfiguration(languageFile);
+		/* Debug
+		plugin.log.info("File Found: " + languageFile.exists());
+		plugin.log.info("String Found: " + languageConfig.contains("message.language"));
+		plugin.log.info("String: " + languageConfig.getString("message.language"));
+		plugin.log.info("Language: " + lang);
+		plugin.log.info("Language: " + language.name());
+		*/
 	}
 	
 	public String getMessage(String message) {
@@ -33,7 +42,7 @@ public class Localisation {
 	}
 	
 	public String getMessage(String message, Player player, HashMap<String, String> args) {
-		String msg =  languageConfig.getString(message);
+		String msg = languageConfig.getString(message);
 		
 		msg = msg.replaceAll("&0", ChatColor.BLACK.toString());
 		msg = msg.replaceAll("&1", ChatColor.DARK_BLUE.toString());
@@ -69,7 +78,7 @@ public class Localisation {
 			msg = msg.replaceAll("\\{player}", player.getName());
 			msg = msg.replaceAll("\\{level}", Integer.toString(player.getLevel()));
 			msg = msg.replaceAll("\\{exp}", Integer.toString(player.getTotalExperience()));
-			msg = msg.replaceAll("\\{language}", lang);
+			msg = msg.replaceAll("\\{language}", language.getName());
 			if(player.getKiller() != null)
 				msg = msg.replaceAll("\\{killer}", player.getKiller().getName());
 		}

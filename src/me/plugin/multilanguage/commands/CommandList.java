@@ -5,38 +5,22 @@ import me.plugin.multilanguage.MultiLanguage;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class CommandList implements CommandExecutor {
-	MultiLanguage plugin;
-	
+public class CommandList extends MultiLanguageCommand {
 	public CommandList(MultiLanguage plugin) {
-		this.plugin = plugin;
+		super(plugin);
 	}
 	
-	@Override
-	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
-		Player player = null;
-		
-		if (sender instanceof Player)
-			player = (Player) sender;
-		
-		if(!cmd.getName().equalsIgnoreCase("langlist"))
-			return false;
-		
-		if (player == null) {
-			sender.sendMessage("This command can only be run by a player");
+	public boolean execute(Player player, Command cmd, String[] args) {
+		if(args.length != 1) {
+			player.sendMessage(ChatColor.WHITE + "/ml list");
 			return true;
 		}
 		
-		if(args.length != 0)
-			return false;
-		
 		player.sendMessage(ChatColor.DARK_RED + "- Available Languages -");
 		for(Language lang : Language.values())
-			player.sendMessage(ChatColor.GOLD + lang.name().toLowerCase() + " (" + lang.getExtension().toUpperCase() + ")");
+			player.sendMessage(ChatColor.GOLD + lang.name().toLowerCase() + ChatColor.DARK_RED + " (" + lang.getExtension().toUpperCase() + ")");
 		
 		return true;
 	}

@@ -12,6 +12,7 @@ import java.util.logging.Logger;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import me.plugin.multilanguage.commands.CommandHelp;
 import me.plugin.multilanguage.commands.CommandList;
 import me.plugin.multilanguage.commands.CommandSet;
 import me.plugin.multilanguage.listeners.LanguageListener;
@@ -71,6 +72,11 @@ public class MultiLanguage extends JavaPlugin {
 	public void loadConfig() {
 		getConfig().addDefault("languages.enabled", true);
 		getConfig().addDefault("languages.default", "english");
+		getConfig().addDefault("messages.login", true);
+		getConfig().addDefault("messages.logout", true);
+		getConfig().addDefault("messages.deaths.pvp", true);
+		getConfig().addDefault("messages.deaths.natural", true);
+		getConfig().addDefault("messages.deaths.monsters", true);
 	    getConfig().options().copyDefaults(true);
 	    saveConfig();	    
 	}
@@ -81,7 +87,7 @@ public class MultiLanguage extends JavaPlugin {
 			languageFiles.mkdirs();
 		
 		for(Language lang : Language.values()) {
-			String language = lang.name().toLowerCase().toLowerCase() + ".yml";
+			String language = lang.name().toLowerCase() + ".yml";
 			try {
 				File file = new File(languageFiles, language);
 				if(!file.exists()) {
@@ -152,8 +158,6 @@ public class MultiLanguage extends JavaPlugin {
 		}
 		
 		log.info("Starting MultiLanguage");
-		getCommand("setlang").setExecutor(new CommandSet(this));
-		getCommand("langlist").setExecutor(new CommandList(this));
 
 		PluginManager pm = getServer().getPluginManager();
 		pm.registerEvents(new LoginListener(this), this);
@@ -184,7 +188,7 @@ public class MultiLanguage extends JavaPlugin {
 		if (sender instanceof Player)
 			player = (Player) sender;
 		
-		if(!cmd.getName().equalsIgnoreCase("language"))
+		if(!cmd.getName().equalsIgnoreCase("multilanguage"))
 			return false;
 		
 		if (player == null) {
@@ -192,7 +196,24 @@ public class MultiLanguage extends JavaPlugin {
 			return true;
 		}
 		
-		player.sendMessage(ChatColor.GOLD + "This server is using LanguageCraft v" + getDescription().getVersion() + " by Anerach and TheMammoth");
-		return true;
+		if(args.length < 1) {
+			player.sendMessage(ChatColor.DARK_RED + "-~= MultiLanguage =~-");
+			player.sendMessage(ChatColor.GOLD + "This server is using MultiLanguage v" + getDescription().getVersion() + " by Anerach");
+			player.sendMessage(ChatColor.GOLD + "Say " + ChatColor.BLUE + "/ml help" + ChatColor.GOLD + " for help");
+			return true;
+		}
+		
+		if(args[0].equalsIgnoreCase("set")) {
+			CommandSet cmdSet = new CommandSet(this);
+			return cmdSet.execute(player, cmd, args);
+		} else if(args[0].equalsIgnoreCase("list")) {
+			CommandList cmdList = new CommandList(this);
+			return cmdList.execute(player, cmd, args);
+		} else if(args[0].equalsIgnoreCase("help")) {
+			CommandHelp cmdHelp = new CommandHelp(this);
+			return cmdHelp.execute(player, cmd, args);
+		}
+		
+		return false;
     }
 }

@@ -45,7 +45,8 @@ public class LanguageListener implements Listener {
 	@EventHandler
 	public void onPlayerKick(PlayerKickEvent event) {
 		Player player = event.getPlayer();
-		sendMessage("message.logout", player);
+		if(plugin.getConfig().getBoolean("messages.logout"))
+			sendMessage("message.logout", player);
 		event.setLeaveMessage(null);
 	}
 	
@@ -55,73 +56,96 @@ public class LanguageListener implements Listener {
 		event.getDeathMessage();
 		DamageCause deathCause = player.getLastDamageCause().getCause();
 		if(player.getKiller() != null) {
-			sendMessage("deaths.pvp", player);
+			if(plugin.getConfig().getBoolean("messages.deaths.pvp"))
+				sendMessage("deaths.pvp", player);
 			event.setDeathMessage(null);
 		} else if(event.getDeathMessage().toLowerCase().contains("wolf")) {
-			sendMessage("monsters.wolf", player);
+			if(plugin.getConfig().getBoolean("messages.deaths.monsters"))
+				sendMessage("monsters.wolf", player);
 			event.setDeathMessage(null);
 		} else if(event.getDeathMessage().toLowerCase().contains("ocelot")) {
-			sendMessage("monsters.ocelot", player);
+			if(plugin.getConfig().getBoolean("messages.deaths.monsters"))
+				sendMessage("monsters.ocelot", player);
 			event.setDeathMessage(null);
 		} else if(event.getDeathMessage().toLowerCase().contains("zombie")) {
-			sendMessage("monsters.zombie", player);
+			if(plugin.getConfig().getBoolean("messages.deaths.monsters"))
+				sendMessage("monsters.zombie", player);
 			event.setDeathMessage(null);
 		} else if(event.getDeathMessage().toLowerCase().contains("skeleton")) {
-			sendMessage("monsters.skeleton", player);
+			if(plugin.getConfig().getBoolean("messages.deaths.monsters"))
+				sendMessage("monsters.skeleton", player);
 			event.setDeathMessage(null);
 		} else if(event.getDeathMessage().toLowerCase().contains("pigzombie")) {
-			sendMessage("monsters.pigzombie", player);
+			if(plugin.getConfig().getBoolean("messages.deaths.monsters"))
+				sendMessage("monsters.pigzombie", player);
 			event.setDeathMessage(null);
 		} else if(event.getDeathMessage().toLowerCase().contains("cave spider")) {
-			sendMessage("monsters.cavespider", player);
+			if(plugin.getConfig().getBoolean("messages.deaths.monsters"))
+				sendMessage("monsters.cavespider", player);
 			event.setDeathMessage(null);
 		} else if(event.getDeathMessage().toLowerCase().contains("spider")) {
-			sendMessage("monsters.spider", player);
+			if(plugin.getConfig().getBoolean("messages.deaths.monsters"))
+				sendMessage("monsters.spider", player);
 			event.setDeathMessage(null);
 		} else if(event.getDeathMessage().toLowerCase().contains("silverfish")) {
-			sendMessage("monsters.silverfish", player);
+			if(plugin.getConfig().getBoolean("messages.deaths.monsters"))
+				sendMessage("monsters.silverfish", player);
 			event.setDeathMessage(null);
 		} else if(event.getDeathMessage().toLowerCase().contains("slime")) {
-			sendMessage("monsters.slime", player);
+			if(plugin.getConfig().getBoolean("messages.deaths.monsters"))
+				sendMessage("monsters.slime", player);
 			event.setDeathMessage(null);
 		} else if(event.getDeathMessage().toLowerCase().contains("creeper")) {
-			sendMessage("monsters.creeper", player);
+			if(plugin.getConfig().getBoolean("messages.deaths.monsters"))
+				sendMessage("monsters.creeper", player);
 			event.setDeathMessage(null);
 		} else if(event.getDeathMessage().toLowerCase().contains("enderman")) {
-			sendMessage("monsters.enderman", player);
+			if(plugin.getConfig().getBoolean("messages.deaths.monsters"))
+				sendMessage("monsters.enderman", player);
 			event.setDeathMessage(null);
 		} else if(event.getDeathMessage().toLowerCase().contains("ghast")) {
-			sendMessage("monsters.ghast", player);
+			if(plugin.getConfig().getBoolean("messages.deaths.monsters"))
+				sendMessage("monsters.ghast", player);
 			event.setDeathMessage(null);
 		} else if(event.getDeathMessage().toLowerCase().contains("blaze")) {
-			sendMessage("monsters.blaze", player);
+			if(plugin.getConfig().getBoolean("messages.deaths.monsters"))
+				sendMessage("monsters.blaze", player);
 			event.setDeathMessage(null);
 		} else if(event.getDeathMessage().toLowerCase().contains("ender dragon")) {
-			sendMessage("monsters.enderdragon", player);
+			if(plugin.getConfig().getBoolean("messages.deaths.monsters"))
+				sendMessage("monsters.enderdragon", player);
 			event.setDeathMessage(null);
 		} else if(deathCause == DamageCause.DROWNING) {
-			sendMessage("deaths.drowning", player);
+			if(plugin.getConfig().getBoolean("messages.deaths.natural"))
+				sendMessage("deaths.drowning", player);
 			event.setDeathMessage(null);
 		} else if(deathCause == DamageCause.SUFFOCATION) {
-			sendMessage("deaths.suffocation", player);
+			if(plugin.getConfig().getBoolean("messages.deaths.natural"))
+				sendMessage("deaths.suffocation", player);
 			event.setDeathMessage(null);
 		} else if(deathCause == DamageCause.SUICIDE) {
-			sendMessage("deaths.suicide", player);
+			if(plugin.getConfig().getBoolean("messages.deaths.natural"))
+				sendMessage("deaths.suicide", player);
 			event.setDeathMessage(null);
 		} else if(deathCause == DamageCause.FALL) {
-			sendMessage("deaths.fall", player);
+			if(plugin.getConfig().getBoolean("messages.deaths.natural"))
+				sendMessage("deaths.fall", player);
 			event.setDeathMessage(null);
 		} else if(deathCause == DamageCause.VOID) {
-			sendMessage("deaths.void", player);
+			if(plugin.getConfig().getBoolean("messages.deaths.natural"))
+				sendMessage("deaths.void", player);
 			event.setDeathMessage(null);
 		} else if(deathCause == DamageCause.LAVA) {
-			sendMessage("deaths.lava", player);
+			if(plugin.getConfig().getBoolean("messages.deaths.natural"))
+				sendMessage("deaths.lava", player);
 			event.setDeathMessage(null);
 		} else if(deathCause == DamageCause.FIRE) {
-			sendMessage("deaths.fire", player);
+			if(plugin.getConfig().getBoolean("messages.deaths.natural"))
+				sendMessage("deaths.fire", player);
 			event.setDeathMessage(null);
 		} else if(deathCause == DamageCause.CONTACT) {
-			sendMessage("deaths.cactus", player);
+			if(plugin.getConfig().getBoolean("messages.deaths.natural"))
+				sendMessage("deaths.cactus", player);
 			event.setDeathMessage(null);
 		}
 	}
