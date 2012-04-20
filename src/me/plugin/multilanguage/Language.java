@@ -1,5 +1,7 @@
 package me.plugin.multilanguage;
 
+import java.io.UnsupportedEncodingException;
+
 public enum Language {
 	ENGLISH("English", "eng"),
 	DUTCH("Nederlands", "nl"),
@@ -10,6 +12,7 @@ public enum Language {
 	LITHUANIAN("Lietuva", "lt"),
 	NORWEGIAN("Norsk", "no"),
 	GERMAN("Deutsch", "de"),
+	RUSSIAN("Pусский", "ru"),
 	PORTUGUESE("Portuguesa", "pt");
 	//CHINESE("Chinese", "cn");
 	
@@ -22,7 +25,12 @@ public enum Language {
 	}
 	
 	public String getName() {
-		return name;
+		try {
+			return new String(name.getBytes("ISO-8859-1"), "UTF-8"); //ISO-8859-1
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	public String getExtension() {

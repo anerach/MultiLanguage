@@ -1,6 +1,7 @@
 package me.plugin.multilanguage;
 
 import java.io.File;
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Set;
 import java.util.Map.Entry;
@@ -20,13 +21,6 @@ public class Localisation {
 		this.language = language;
 		File languageFile = new File(plugin.getDataFolder() + "/languages", lang + ".yml");
 		languageConfig = YamlConfiguration.loadConfiguration(languageFile);
-		/* Debug
-		plugin.log.info("File Found: " + languageFile.exists());
-		plugin.log.info("String Found: " + languageConfig.contains("message.language"));
-		plugin.log.info("String: " + languageConfig.getString("message.language"));
-		plugin.log.info("Language: " + lang);
-		plugin.log.info("Language: " + language.name());
-		*/
 	}
 	
 	public String getMessage(String message) {
@@ -43,6 +37,12 @@ public class Localisation {
 	
 	public String getMessage(String message, Player player, HashMap<String, String> args) {
 		String msg = languageConfig.getString(message);
+		
+		try {
+			msg = new String(msg.getBytes("ISO-8859-1"), "UTF-8"); //ISO-8859-1
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
 		
 		msg = msg.replaceAll("&0", ChatColor.BLACK.toString());
 		msg = msg.replaceAll("&1", ChatColor.DARK_BLUE.toString());

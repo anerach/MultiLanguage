@@ -1,31 +1,18 @@
 package me.plugin.multilanguage.listeners;
 
-import me.plugin.multilanguage.Localisation;
 import me.plugin.multilanguage.MultiLanguage;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerKickEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import org.bukkit.event.entity.PlayerDeathEvent;
 
-public class LanguageListener implements Listener {
-	private MultiLanguage plugin;
-	
+public class LanguageListener extends MultiLanguageListener {
 	public LanguageListener(MultiLanguage plugin) {
-		this.plugin = plugin;
-	}
-	
-	public void sendMessage(String msg, Player player) {
-		Localisation localisation;
-		
-		for(Player p : plugin.getServer().getOnlinePlayers()) {
-			localisation = new Localisation(plugin, plugin.playerLanguages.get(p.getName()));
-			p.sendMessage(localisation.getMessage(msg, player));
-		}
+		super(plugin);
 	}
 	
 	@EventHandler

@@ -7,16 +7,15 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.logging.Logger;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 
-import me.plugin.multilanguage.commands.CommandHelp;
-import me.plugin.multilanguage.commands.CommandList;
-import me.plugin.multilanguage.commands.CommandSet;
-import me.plugin.multilanguage.listeners.LanguageListener;
-import me.plugin.multilanguage.listeners.LoginListener;
+import me.plugin.multilanguage.Config;
+import me.plugin.multilanguage.commands.*;
+import me.plugin.multilanguage.listeners.*;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -35,7 +34,8 @@ import org.w3c.dom.NodeList;
 public class MultiLanguage extends JavaPlugin {
 	public Logger log;
 	public HashMap<String, Language> playerLanguages = new HashMap<String, Language>();
-	
+	public HashMap<Language, ArrayList<String>> channels = new HashMap<Language, ArrayList<String>>();
+	public HashMap<String, Language> playerChannels = new HashMap<String, Language>();
 	private File languageFile;
 	
 	public String newVersion;
@@ -81,12 +81,37 @@ public class MultiLanguage extends JavaPlugin {
 	    saveConfig();	    
 	}
 	
+	public void updateLanguages() {
+		Config versions = new Config("VERSIONS");
+		versions.getConfig().addDefault("languages.global", 1);
+		versions.getConfig().addDefault("languages.danish", 1);
+		versions.getConfig().addDefault("languages.dutch", 1);
+		versions.getConfig().addDefault("languages.english", 1);
+		versions.getConfig().addDefault("languages.german", 1);
+		versions.getConfig().addDefault("languages.italian", 1);
+		versions.getConfig().addDefault("languages.lithuanian", 1);
+		versions.getConfig().addDefault("languages.norwegian", 1);
+		versions.getConfig().addDefault("languages.polish", 1);
+		versions.getConfig().addDefault("languages.portuguese", 1);
+		versions.getConfig().addDefault("languages.spanish", 1);
+		versions.getConfig().options().copyDefaults(true);
+		
+		if(versions.getConfig().getInt("languages.global") < 2) {
+			for(Language lang : Language.values())
+				new File(Config.configDir + "/languages/" + lang.name().toLowerCase() + ".yml").delete();
+				
+			versions.getConfig().set("languages.global", 2);
+		}
+		versions.saveConfig();
+	}
+	
 	public void prepareLanguages() {
 		File languageFiles = new File(getDataFolder() + "/languages");
 		if(!languageFiles.exists())
 			languageFiles.mkdirs();
 		
 		for(Language lang : Language.values()) {
+			channels.put(lang, new ArrayList<String>());
 			String language = lang.name().toLowerCase() + ".yml";
 			try {
 				File file = new File(languageFiles, language);
@@ -139,6 +164,9 @@ public class MultiLanguage extends JavaPlugin {
 		log.info("Loading config");
 		loadConfig();
 		
+		log.info("Updating languages");
+		updateLanguages();
+		
 		log.info("Loading languages");
 		prepareLanguages();
 		
@@ -160,7 +188,8 @@ public class MultiLanguage extends JavaPlugin {
 		log.info("Starting MultiLanguage");
 
 		PluginManager pm = getServer().getPluginManager();
-		pm.registerEvents(new LoginListener(this), this);
+		pm.registerEvents(new PlayerListener(this), this);
+		pm.registerEvents(new ChannelListener(this), this);
 		
 		if(getConfig().getBoolean("languages.enabled"))
 			pm.registerEvents(new LanguageListener(this), this);
@@ -212,6 +241,9 @@ public class MultiLanguage extends JavaPlugin {
 		} else if(args[0].equalsIgnoreCase("help")) {
 			CommandHelp cmdHelp = new CommandHelp(this);
 			return cmdHelp.execute(player, cmd, args);
+		} else if(args[0].equalsIgnoreCase("ch") || args[0].equalsIgnoreCase("channel")) {
+			CommandChannel cmdChannel = new CommandChannel(this);
+			return cmdChannel.execute(player, cmd, args);
 		}
 		
 		return false;
