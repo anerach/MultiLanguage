@@ -15,7 +15,7 @@ public class ChannelListener extends MultiLanguageListener {
 	public void onPlayerChat(PlayerChatEvent event) {
 		Player player = event.getPlayer();
 		if(plugin.playerChannels.containsKey(player.getName())) {
-			sendChannelMessage(event.getMessage(), plugin.playerChannels.get(player.getName()));
+			sendChannelMessage(event.getMessage(), player, plugin.playerChannels.get(player.getName()));
 			event.setCancelled(true);
 		}
 	}

@@ -97,8 +97,12 @@ public class MultiLanguage extends JavaPlugin {
 		versions.getConfig().options().copyDefaults(true);
 		
 		if(versions.getConfig().getInt("languages.global") < 2) {
-			for(Language lang : Language.values())
-				new File(Config.configDir + "/languages/" + lang.name().toLowerCase() + ".yml").delete();
+			for(Language lang : Language.values()) {
+				File file = new File(Config.configDir + "/languages/" + lang.name().toLowerCase() + ".yml");
+				if(file.exists())
+					file.delete();
+			}
+				
 				
 			versions.getConfig().set("languages.global", 2);
 		}
