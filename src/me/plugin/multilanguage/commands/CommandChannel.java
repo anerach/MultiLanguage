@@ -24,11 +24,11 @@ public class CommandChannel extends MultiLanguageCommand {
 		if(!plugin.playerChannels.containsKey(player.getName())) {
 			plugin.playerChannels.put(player.getName(), lang);
 			plugin.channels.get(lang).add(player.getName());
-			player.sendMessage(ChatColor.BLUE + localisation.getMessage("channel.on"));
+			player.sendMessage(ChatColor.BLUE + localisation.getMessage("channel.join"));
 		} else {
 			plugin.playerChannels.remove(player.getName());
 			plugin.channels.get(lang).remove(player.getName());
-			player.sendMessage(ChatColor.BLUE + localisation.getMessage("channel.off"));
+			player.sendMessage(ChatColor.BLUE + localisation.getMessage("channel.leave"));
 		}
 		return true;
 	}

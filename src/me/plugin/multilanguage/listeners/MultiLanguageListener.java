@@ -32,7 +32,7 @@ public class MultiLanguageListener implements Listener {
 	public void sendChannelMessage(String msg, Player sender, Language language) {
 		ArrayList<String> players = plugin.channels.get(language);
 		for(String player : players) {
-			plugin.getServer().getPlayer(player).sendMessage(ChatColor.GREEN + "[" + language.getName() + "]"+ ChatColor.BLUE + "[" + ChatColor.WHITE + sender.getName() + ChatColor.BLUE + "] " + msg);
+			plugin.getServer().getPlayer(player).sendMessage(ChatColor.DARK_RED + "[" + language.getName() + "]"+ ChatColor.BLUE + "[" + ChatColor.GOLD + sender.getName() + ChatColor.BLUE + "] " + ChatColor.YELLOW + msg);
 		}
 	}
 }

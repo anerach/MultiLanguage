@@ -82,8 +82,9 @@ public class MultiLanguage extends JavaPlugin {
 	}
 	
 	public void updateLanguages() {
+		Integer currentGlobalVersion = 2;
 		Config versions = new Config("VERSIONS");
-		versions.getConfig().addDefault("languages.global", 1);
+		versions.getConfig().addDefault("languages.global", currentGlobalVersion-1);
 		versions.getConfig().addDefault("languages.danish", 1);
 		versions.getConfig().addDefault("languages.dutch", 1);
 		versions.getConfig().addDefault("languages.english", 1);
@@ -96,14 +97,12 @@ public class MultiLanguage extends JavaPlugin {
 		versions.getConfig().addDefault("languages.spanish", 1);
 		versions.getConfig().options().copyDefaults(true);
 		
-		if(versions.getConfig().getInt("languages.global") < 2) {
+		if(versions.getConfig().getInt("languages.global") < currentGlobalVersion) {
 			for(Language lang : Language.values()) {
 				File file = new File(Config.configDir + "/languages/" + lang.name().toLowerCase() + ".yml");
 				if(file.exists())
 					file.delete();
 			}
-				
-				
 			versions.getConfig().set("languages.global", 2);
 		}
 		versions.saveConfig();
