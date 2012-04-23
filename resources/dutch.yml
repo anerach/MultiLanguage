@@ -2,6 +2,9 @@
     language: "&6Welkom {player}. Jou taal is ingestelt op {language}"
     login: "&e{player} is ingelogd"
     logout: "&e{player} is uitgelogd"
+channel:
+    join: "&9Channel chat staat nu aan"
+    leave: "&9Channel chat staat nu uit"
 deaths:
     drowning: "&f{player} is verdronken"
     suffocation: "&f{player} is gestikt"

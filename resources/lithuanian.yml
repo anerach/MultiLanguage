@@ -2,6 +2,9 @@
     language: "&6Sveikas atvykes {player}.  Jusu dabartine kalba: {language}"
     login: '&e{player} zaidejas prisijunge prie zaidimo'
     logout: '&e{player} Zaidejas isejo is zaidimo'
+channel:
+    join: "&9Channel chat is now on"
+    leave: "&9Channel chat is now off"
 deaths:
     drowning: '&f{player} nuskendo'
     suffocation: '&f{player} suffocated'

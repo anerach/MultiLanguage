@@ -2,6 +2,9 @@
     language: "&6Willkommen {player}. Deine Sprache ist momentan {language}"
     login: "&e{player} hat den Server betreten"
     logout: "&e{player} hat den Server verlassen"
+channel:
+    join: "&9Channel chat is now on"
+    leave: "&9Channel chat is now off"
 deaths:
     drowning: "&f{player} etrank"
     suffocation: "&f{player} erstickte"

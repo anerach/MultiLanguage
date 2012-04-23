@@ -2,6 +2,9 @@
     language: "&6欢迎 {player}. 你当前的语言是 {language}"
     login: "&e{player} 加入了游戏"
     logout: "&e{player} 离开了游戏"
+channel:
+    join: "&9Channel chat is now on"
+    leave: "&9Channel chat is now off"
 deaths:
     drowning: "&f{player} 淹死了"
     suffocation: "&f{player} 窒息而亡"

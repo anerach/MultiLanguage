@@ -2,6 +2,9 @@
     language: "&6Welcome {player}. Your concurrent language is {language}"
     login: "&e{player} joined the game"
     logout: "&e{player} left the game"
+channel:
+    join: "&9Channel chat is now on"
+    leave: "&9Channel chat is now off"
 deaths:
     drowning: "&f{player} drowned"
     suffocation: "&f{player} suffocated"

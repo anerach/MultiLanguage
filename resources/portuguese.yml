@@ -2,6 +2,9 @@
     language: "&6Bem-Vindo {player}. A Sua linguagem concorrente é {language}"
     login: "&e{player} Juntou-se ao jogo"
     logout: "&e{player} Deixou o jogo"
+channel:
+    join: "&9Channel chat is now on"
+    leave: "&9Channel chat is now off"
 deaths:
     drowning: "&f{player} afogou-se"
     suffocation: "&f{player} sufocou"

@@ -2,6 +2,9 @@
     language: "&6Witamy, {player}! Twoim aktualnym językiem jest: {language}"
     login: "&e{player} dolaczyl do gry."
     logout: "&e{player} opuscił gre."
+channel:
+    join: "&9Kanal czatu jest wlaczony"
+    leave: "&9Kanal czatu jest wylaczony"
 deaths:
     drowning: "&f{player} utonal."
     suffocation: "&f{player} udusil sie."
