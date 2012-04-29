@@ -3,8 +3,11 @@
     login: "&e{player} dolaczyl do gry."
     logout: "&e{player} opuscił gre."
 channel:
-    join: "&9Kanal czatu jest wlaczony"
-    leave: "&9Kanal czatu jest wylaczony"
+    players: "&eGracze na kanale"
+    toggle-on: "&9Czat kanalu jest wlaczony"
+    toggle-off: "&9Czat kanalu jest wylaczony"
+    join: "&e{player} dolaczyl do kanalu"
+    leave: "&e{player} opuscil kanal"
 deaths:
     drowning: "&f{player} utonal."
     suffocation: "&f{player} udusil sie."

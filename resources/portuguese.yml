@@ -3,8 +3,11 @@
     login: "&e{player} Juntou-se ao jogo"
     logout: "&e{player} Deixou o jogo"
 channel:
-    join: "&9Channel chat is now on"
-    leave: "&9Channel chat is now off"
+    players: "&eConcurrent players in this channel"
+    toggle-on: "&9Channel chat is now on"
+    toggle-off: "&9Channel chat is now off"
+    join: "&e{player} joined the channel"
+    leave: "&e{player} left the channel"
 deaths:
     drowning: "&f{player} afogou-se"
     suffocation: "&f{player} sufocou"

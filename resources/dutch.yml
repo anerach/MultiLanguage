@@ -3,8 +3,11 @@
     login: "&e{player} is ingelogd"
     logout: "&e{player} is uitgelogd"
 channel:
-    join: "&9Channel chat staat nu aan"
-    leave: "&9Channel chat staat nu uit"
+    players: "&eSpelers op dit moment in deze channel"
+    toggle-on: "&9Channel chat staat nu aan"
+    toggle-off: "&9Channel chat staat nu uit"
+    join: "&e{player} is toegetreden tot de channel"
+    leave: "&e{player} heeft de channel verlaten"
 deaths:
     drowning: "&f{player} is verdronken"
     suffocation: "&f{player} is gestikt"

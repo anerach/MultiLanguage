@@ -3,8 +3,11 @@
     login: "&e{player} 加入了游戏"
     logout: "&e{player} 离开了游戏"
 channel:
-    join: "&9Channel chat is now on"
-    leave: "&9Channel chat is now off"
+    players: "&eConcurrent players in this channel"
+    toggle-on: "&9Channel chat is now on"
+    toggle-off: "&9Channel chat is now off"
+    join: "&e{player} joined the channel"
+    leave: "&e{player} left the channel"
 deaths:
     drowning: "&f{player} 淹死了"
     suffocation: "&f{player} 窒息而亡"

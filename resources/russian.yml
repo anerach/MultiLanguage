@@ -3,8 +3,11 @@
     login: "&e{player} вошел в игру"
     logout: "&e{player} вышел из игры"
 channel:
-    join: "&9Чат включен"
-    leave: "&9Чат выключен"
+    players: "&eИгроки в текущем канале"
+    toggle-on: "&9Чат включен"
+    toggle-off: "&9Чат выключен"
+    join: "&e{player} вошел в канал"
+    leave: "&e{player} покинул канал"
 deaths:
     drowning: "&f{player} утонул"
     suffocation: "&f{player} задохнулся"
