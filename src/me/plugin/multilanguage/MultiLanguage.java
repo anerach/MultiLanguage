@@ -82,9 +82,9 @@ public class MultiLanguage extends JavaPlugin {
 	}
 	
 	public void updateLanguages() {
-		Integer currentGlobalVersion = 2;
+		Integer currentGlobalVersion = 1;
 		Config versions = new Config("VERSIONS");
-		versions.getConfig().addDefault("languages.global", currentGlobalVersion-1);
+		versions.getConfig().addDefault("languages.global", currentGlobalVersion);
 		versions.getConfig().addDefault("languages.danish", 1);
 		versions.getConfig().addDefault("languages.dutch", 1);
 		versions.getConfig().addDefault("languages.english", 1);
@@ -103,7 +103,7 @@ public class MultiLanguage extends JavaPlugin {
 				if(file.exists())
 					file.delete();
 			}
-			versions.getConfig().set("languages.global", 2);
+			versions.getConfig().set("languages.global", currentGlobalVersion);
 		}
 		versions.saveConfig();
 	}
@@ -125,9 +125,12 @@ public class MultiLanguage extends JavaPlugin {
 					config.options().copyDefaults(true);
 					config.save(file);
 				}
-		    } catch (IOException e) {
-		    	log.severe("Unable to load language: " + language);
+			} catch (IOException e) {
 		        e.printStackTrace();
+		    	log.severe("Unable to load language: " + language);
+			} catch (Exception e) {
+		        e.printStackTrace();
+		    	log.severe("Unable to load language: " + language);
 		    }
 		}
 	}

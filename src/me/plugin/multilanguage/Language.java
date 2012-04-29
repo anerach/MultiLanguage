@@ -12,9 +12,9 @@ public enum Language {
 	LITHUANIAN("Lietuva", "lt"),
 	NORWEGIAN("Norsk", "no"),
 	GERMAN("Deutsch", "de"),
-	RUSSIAN("Pусский", "ru"),
 	PORTUGUESE("Portuguesa", "pt");
-	//CHINESE("Chinese", "cn");
+	//RUSSIAN("Pусский", "ru"),
+	//CHINESE("Chinese", "cn"),
 	
 	String extension;
 	String name;

@@ -21,14 +21,25 @@ public class CommandChannel extends MultiLanguageCommand {
 		
 		Language lang = Language.getLanguage(plugin.getPlayerLanguage(player));
 		Localisation localisation = new Localisation(plugin, lang);
+		
 		if(!plugin.playerChannels.containsKey(player.getName())) {
 			plugin.playerChannels.put(player.getName(), lang);
 			plugin.channels.get(lang).add(player.getName());
-			player.sendMessage(ChatColor.BLUE + localisation.getMessage("channel.join"));
+			player.sendMessage(localisation.getMessage("channel.toggle-on"));
+			sendChannelMessage(localisation.getMessage("channel.join", player), null, lang);
+			String players = "";
+			String[] cPlayers = plugin.channels.get(lang).toArray(new String[]{});
+			
+			for(int i=0;i<cPlayers.length;i++)
+				players += (cPlayers.length == i+1) ? cPlayers[i] : cPlayers[i] + ", ";
+				
+			player.sendMessage(ChatColor.DARK_RED + "[" + lang.getName() + "] " + localisation.getMessage("channel.players"));
+			player.sendMessage(ChatColor.DARK_RED + "[" + lang.getName() + "] " + ChatColor.GOLD + players);
 		} else {
+			player.sendMessage(localisation.getMessage("channel.toggle-off"));
+			sendChannelMessage(localisation.getMessage("channel.leave", player), null, lang);
 			plugin.playerChannels.remove(player.getName());
 			plugin.channels.get(lang).remove(player.getName());
-			player.sendMessage(ChatColor.BLUE + localisation.getMessage("channel.leave"));
 		}
 		return true;
 	}
