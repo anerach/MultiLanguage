@@ -1,4 +1,4 @@
-﻿message:
+message:
     language: "&6Bienvenido {player}. Su lenguaje actual es {language}"
     login: "&e{player} entró al juego"
     logout: "&e{player} salió del juego"

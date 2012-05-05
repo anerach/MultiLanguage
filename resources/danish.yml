@@ -1,4 +1,4 @@
-﻿message:
+message:
     language: "&6Welcome {player}. Your concurrent language is {language}"
     login: "&e{player} tilsluttet til serveren"
     logout: "&e{player} forlod serveren"

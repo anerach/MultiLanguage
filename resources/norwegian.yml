@@ -1,4 +1,4 @@
-﻿message:
+message:
     language: "&6Velkommen {player}. Ditt nåværende språk er {language}"
     login: "&e{player} har joina spillet"
     logout: "&e{player} har gått ut av spillet"
