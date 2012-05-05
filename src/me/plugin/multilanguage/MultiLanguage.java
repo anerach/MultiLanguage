@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import me.plugin.multilanguage.Metrics;
 import me.plugin.multilanguage.commands.CommandChannel;
 import me.plugin.multilanguage.commands.CommandHelp;
 import me.plugin.multilanguage.commands.CommandList;
@@ -82,6 +83,7 @@ public class MultiLanguage extends JavaPlugin {
 		getConfig().addDefault("messages.deaths.pvp", true);
 		getConfig().addDefault("messages.deaths.natural", true);
 		getConfig().addDefault("messages.deaths.monsters", true);
+		getConfig().addDefault("metrics", true);
 	    getConfig().options().copyDefaults(true);
 	    saveConfig();	    
 	}
@@ -97,7 +99,7 @@ public class MultiLanguage extends JavaPlugin {
 		versions.getConfig().addDefault("languages.italian", 1);
 		versions.getConfig().addDefault("languages.lithuanian", 1);
 		versions.getConfig().addDefault("languages.norwegian", 1);
-		versions.getConfig().addDefault("languages.polish", 1);
+		versions.getConfig().addDefault("languages.polish", 2);
 		versions.getConfig().addDefault("languages.portuguese", 1);
 		versions.getConfig().addDefault("languages.spanish", 1);
 		versions.getConfig().options().copyDefaults(true);
@@ -111,6 +113,15 @@ public class MultiLanguage extends JavaPlugin {
 			versions.getConfig().set("languages.global", currentGlobalVersion);
 		}
 		versions.saveConfig();
+	}
+	
+	public void loadMetrics() {
+		try {
+		    Metrics metrics = new Metrics(this);
+		    metrics.start();
+		} catch (IOException e) {
+		    // Failed to submit the stats :-(
+		}
 	}
 	
 	public void prepareLanguages() {
@@ -176,6 +187,11 @@ public class MultiLanguage extends JavaPlugin {
 		log.info("Loading config");
 		loadConfig();
 		
+		if(getConfig().getBoolean("metrics")) {
+			log.info("Loading metrics");
+			loadMetrics();
+		}
+		
 		log.info("Updating languages");
 		updateLanguages();
 		
@@ -238,7 +254,7 @@ public class MultiLanguage extends JavaPlugin {
 		}
 		
 		if(args.length < 1) {
-			player.sendMessage(ChatColor.DARK_RED + "-~= MultiLanguage =~-");
+			player.sendMessage(ChatColor.GRAY + "----- " + ChatColor.DARK_RED + "MultiLanguage" + ChatColor.GRAY + " -----");
 			player.sendMessage(ChatColor.GOLD + "This server is using MultiLanguage v" + getDescription().getVersion() + " by Anerach");
 			player.sendMessage(ChatColor.GOLD + "Say " + ChatColor.BLUE + "/ml help" + ChatColor.GOLD + " for help");
 			return true;

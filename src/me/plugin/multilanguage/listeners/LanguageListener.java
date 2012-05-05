@@ -48,59 +48,59 @@ public class LanguageListener extends MultiLanguageListener {
 			event.setDeathMessage(null);
 		} else if(event.getDeathMessage().toLowerCase().contains("wolf")) {
 			if(plugin.getConfig().getBoolean("messages.deaths.monsters"))
-				sendMessage("deaths.wolf", player);
+				sendMessage("monsters.wolf", player);
 			event.setDeathMessage(null);
 		} else if(event.getDeathMessage().toLowerCase().contains("ocelot")) {
 			if(plugin.getConfig().getBoolean("messages.deaths.monsters"))
-				sendMessage("deaths.ocelot", player);
+				sendMessage("monsters.ocelot", player);
 			event.setDeathMessage(null);
 		} else if(event.getDeathMessage().toLowerCase().contains("zombie")) {
 			if(plugin.getConfig().getBoolean("messages.deaths.monsters"))
-				sendMessage("deaths.zombie", player);
+				sendMessage("monsters.zombie", player);
 			event.setDeathMessage(null);
 		} else if(event.getDeathMessage().toLowerCase().contains("skeleton")) {
 			if(plugin.getConfig().getBoolean("messages.deaths.monsters"))
-				sendMessage("deaths.skeleton", player);
+				sendMessage("monsters.skeleton", player);
 			event.setDeathMessage(null);
 		} else if(event.getDeathMessage().toLowerCase().contains("pigzombie")) {
 			if(plugin.getConfig().getBoolean("messages.deaths.monsters"))
-				sendMessage("deaths.pigzombie", player);
+				sendMessage("monsters.pigzombie", player);
 			event.setDeathMessage(null);
 		} else if(event.getDeathMessage().toLowerCase().contains("cave spider")) {
 			if(plugin.getConfig().getBoolean("messages.deaths.monsters"))
-				sendMessage("deaths.cavespider", player);
+				sendMessage("monsters.cavespider", player);
 			event.setDeathMessage(null);
 		} else if(event.getDeathMessage().toLowerCase().contains("spider")) {
 			if(plugin.getConfig().getBoolean("messages.deaths.monsters"))
-				sendMessage("deaths.spider", player);
+				sendMessage("monsters.spider", player);
 			event.setDeathMessage(null);
 		} else if(event.getDeathMessage().toLowerCase().contains("silverfish")) {
 			if(plugin.getConfig().getBoolean("messages.deaths.monsters"))
-				sendMessage("deaths.silverfish", player);
+				sendMessage("monsters.silverfish", player);
 			event.setDeathMessage(null);
 		} else if(event.getDeathMessage().toLowerCase().contains("slime")) {
 			if(plugin.getConfig().getBoolean("messages.deaths.monsters"))
-				sendMessage("deaths.slime", player);
+				sendMessage("monsters.slime", player);
 			event.setDeathMessage(null);
 		} else if(event.getDeathMessage().toLowerCase().contains("creeper")) {
 			if(plugin.getConfig().getBoolean("messages.deaths.monsters"))
-				sendMessage("deaths.creeper", player);
+				sendMessage("monsters.creeper", player);
 			event.setDeathMessage(null);
 		} else if(event.getDeathMessage().toLowerCase().contains("enderman")) {
 			if(plugin.getConfig().getBoolean("messages.deaths.monsters"))
-				sendMessage("deaths.enderman", player);
+				sendMessage("monsters.enderman", player);
 			event.setDeathMessage(null);
 		} else if(event.getDeathMessage().toLowerCase().contains("ghast")) {
 			if(plugin.getConfig().getBoolean("messages.deaths.monsters"))
-				sendMessage("deaths.ghast", player);
+				sendMessage("monsters.ghast", player);
 			event.setDeathMessage(null);
 		} else if(event.getDeathMessage().toLowerCase().contains("blaze")) {
 			if(plugin.getConfig().getBoolean("messages.deaths.monsters"))
-				sendMessage("deaths.blaze", player);
+				sendMessage("monsters.blaze", player);
 			event.setDeathMessage(null);
 		} else if(event.getDeathMessage().toLowerCase().contains("ender dragon")) {
 			if(plugin.getConfig().getBoolean("messages.deaths.monsters"))
-				sendMessage("deaths.enderdragon", player);
+				sendMessage("monsters.enderdragon", player);
 			event.setDeathMessage(null);
 		} else if(deathCause == DamageCause.DROWNING) {
 			if(plugin.getConfig().getBoolean("messages.deaths.natural"))
