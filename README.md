@@ -18,4 +18,4 @@ Available Languages
 * Russian *
 * Traditional Chinese *
 
-""* Bukkit's yml reader doesn't recognize most of these languages their characters on windows! It does work on Ubuntu but then bukkit filters out all the special characters which is every character from both Traditional Chinese and Russian. I'll see if I can find a solution for this.
+"* Bukkit's yml reader doesn't recognize most of these languages their characters on windows! It does work on Ubuntu but then bukkit filters out all the special characters which is every character from both Traditional Chinese and Russian. I'll see if I can find a solution for this.
