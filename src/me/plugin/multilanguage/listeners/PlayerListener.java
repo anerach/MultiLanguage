@@ -6,6 +6,7 @@ import me.plugin.multilanguage.MultiLanguage;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
@@ -14,7 +15,7 @@ public class PlayerListener extends MultiLanguageListener {
 		super(plugin);
 	}
 	
-	@EventHandler
+	@EventHandler(priority = EventPriority.LOWEST)
 	public void onPlayerJoin(PlayerJoinEvent event) {
 		Player player = event.getPlayer();
 		
@@ -23,7 +24,7 @@ public class PlayerListener extends MultiLanguageListener {
 		
 		Language lang = Language.getLanguage(plugin.getPlayerLanguage(player));
 		
-		Localisation localisation = new Localisation(plugin, lang);
+		Localisation localisation = new Localisation(lang);
 		player.sendMessage(localisation.getMessage("message.language", player));
 	}
 	

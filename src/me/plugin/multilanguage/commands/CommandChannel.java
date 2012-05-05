@@ -20,7 +20,7 @@ public class CommandChannel extends MultiLanguageCommand {
 		}
 		
 		Language lang = Language.getLanguage(plugin.getPlayerLanguage(player));
-		Localisation localisation = new Localisation(plugin, lang);
+		Localisation localisation = new Localisation(lang);
 		
 		if(!plugin.playerChannels.containsKey(player.getName())) {
 			plugin.playerChannels.put(player.getName(), lang);

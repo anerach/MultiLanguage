@@ -24,7 +24,7 @@ public class MultiLanguageListener implements Listener {
 		Localisation localisation;
 		
 		for(Player p : plugin.getServer().getOnlinePlayers()) {
-			localisation = new Localisation(plugin, plugin.playerLanguages.get(p.getName()));
+			localisation = new Localisation(plugin.playerLanguages.get(p.getName()));
 			p.sendMessage(localisation.getMessage(msg, player));
 		}
 	}

@@ -13,9 +13,13 @@ import java.util.logging.Logger;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 
-import me.plugin.multilanguage.Config;
-import me.plugin.multilanguage.commands.*;
-import me.plugin.multilanguage.listeners.*;
+import me.plugin.multilanguage.commands.CommandChannel;
+import me.plugin.multilanguage.commands.CommandHelp;
+import me.plugin.multilanguage.commands.CommandList;
+import me.plugin.multilanguage.commands.CommandSet;
+import me.plugin.multilanguage.listeners.ChannelListener;
+import me.plugin.multilanguage.listeners.LanguageListener;
+import me.plugin.multilanguage.listeners.PlayerListener;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -32,6 +36,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 public class MultiLanguage extends JavaPlugin {
+	public static MultiLanguage plugin;
 	public Logger log;
 	public HashMap<String, Language> playerLanguages = new HashMap<String, Language>();
 	public HashMap<Language, ArrayList<String>> channels = new HashMap<Language, ArrayList<String>>();
@@ -82,7 +87,7 @@ public class MultiLanguage extends JavaPlugin {
 	}
 	
 	public void updateLanguages() {
-		Integer currentGlobalVersion = 1;
+		Integer currentGlobalVersion = 2;
 		Config versions = new Config("VERSIONS");
 		versions.getConfig().addDefault("languages.global", currentGlobalVersion);
 		versions.getConfig().addDefault("languages.danish", 1);
@@ -166,6 +171,7 @@ public class MultiLanguage extends JavaPlugin {
 	
 	public void loadPlugin() {
 		log = getLogger();
+		plugin = this;
 		
 		log.info("Loading config");
 		loadConfig();
