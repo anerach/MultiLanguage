@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.Player;
 
 import me.arno.multilanguage.Language;
 import me.arno.multilanguage.MultiLanguage;
@@ -20,11 +21,22 @@ import me.arno.multilanguage.MultiLanguage;
 public class LanguageManager {
 	private Logger log;
 	private HashMap<String, Language> playerLanguages = new HashMap<String, Language>();
-	private static File languageFile = new File(MultiLanguage.plugin.getDataFolder() + File.separator + "languages.txt");
-	private static File languageFolder = new File(MultiLanguage.plugin.getDataFolder() + File.separator + "languages");
+	public static File languageFile = new File(MultiLanguage.plugin.getDataFolder() + File.separator + "languages.txt");
+	public static File languageFolder = new File(MultiLanguage.plugin.getDataFolder() + File.separator + "languages");
 	
 	public LanguageManager() {
 		log = MultiLanguage.plugin.log;
+	}
+	
+	public Language getPlayerLanguage(Player player) {
+		return getPlayerLanguage(player.getName());
+	}
+	
+	public Language getPlayerLanguage(String player) {
+		if(playerLanguages.containsKey(player))
+			playerLanguages.put(player, MultiLanguage.plugin.getSettingsManager().getDefaultLanguage());
+		
+		return playerLanguages.get(player);
 	}
 	
 	public void loadLanguages() {

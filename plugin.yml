@@ -9,3 +9,6 @@ commands:
         description: Shows basic language information
         aliases: [lang, language, mlang, ml]
         usage: /<command>
+permissions:
+    multilanguage.notice:
+        description: A player with this permission will receive notifications from MultiLanguage

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.logging.Logger;
 
 import me.arno.multilanguage.listener.NoticeListener;
+import me.arno.multilanguage.listener.TranslationListener;
 import me.arno.multilanguage.managers.LanguageManager;
 import me.arno.multilanguage.managers.SettingsManager;
 import me.arno.multilanguage.schedules.Updates;
@@ -70,10 +71,8 @@ public class MultiLanguage extends JavaPlugin {
 		
 		log.info("Starting the plugin");
 		loadMetrics();
-		//getServer().getPluginManager().registerEvents(new LoginListener(), this);
-		//getServer().getPluginManager().registerEvents(new LogoutListener(), this);
-		//getServer().getPluginManager().registerEvents(new KickListener(), this);
-		//getServer().getPluginManager().registerEvents(new DeathListener(), this);
+		
+		getServer().getPluginManager().registerEvents(new TranslationListener(), this);
 		
 		if(getSettingsManager().isUpdateCheckingEnabled()) {
 	    	getServer().getScheduler().scheduleSyncRepeatingTask(this, new Updates(), 1L, 1 * 60 * 60 * 20L); // Check every hour for a new version
