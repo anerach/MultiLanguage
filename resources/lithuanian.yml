@@ -1,7 +1,7 @@
 message:
     language: "&6Sveikas atvykes {player}.  Jusu dabartine kalba: {language}"
-    login: '&e{player} zaidejas prisijunge prie zaidimo'
-    logout: '&e{player} Zaidejas isejo is zaidimo'
+    login: "&e{player} zaidejas prisijunge prie zaidimo"
+    logout: "&e{player} Zaidejas isejo is zaidimo"
 channel:
     players: "&eConcurrent players in this channel"
     toggle-on: "&9Channel chat is now on"
@@ -9,27 +9,27 @@ channel:
     join: "&e{player} joined the channel"
     leave: "&e{player} left the channel"
 deaths:
-    drowning: '&f{player} nuskendo'
-    suffocation: '&f{player} suffocated'
-    suicide: '&f{player} nusizude'
-    fall: '&f{player} nukrito per stipriai'
-    void: '&f{player} iskrito is zemelapio'
-    lava: '&f{player} megino paplaukioti lavoje'
-    fire: '&f{player} sudege iki mirties'
-    cactus: '&f{player} Buvo persmeigtas iki mirties'
-    pvp: '&f{player} buvo nuzudytas {killer} zaidejo'
+    drowning: "&f{player} nuskendo"
+    suffocation: "&f{player} suffocated"
+    suicide: "&f{player} nusizude"
+    fall: "&f{player} nukrito per stipriai"
+    void: "&f{player} iskrito is zemelapio"
+    lava: "&f{player} megino paplaukioti lavoje"
+    fire: "&f{player} sudege iki mirties"
+    cactus: "&f{player} Buvo persmeigtas iki mirties"
+    pvp: "&f{player} buvo nuzudytas {killer} zaidejo"
 monsters:
-    wolf: '&f{player} buvo uzmustas Vilko'
-    ocelot: '&f{player} buvo uzmustas Oceloto (Leopardo)'
-    zombie: '&f{player} buvo uzmustas Zombio'
-    skeleton: '&f{player} buvo nusautas Skeleto'
-    pigzombie: '&f{player} buvo uzmustas Kiaules-zombio'
-    spider: '&f{player} buvo uzmustas Voro'
-    cavespider: '&f{player} buvo uzmustas Urvinio voro'
-    silverfish: '&f{player} buvo uzmustas Sidabrinzuves'
-    slime: '&f{player} buvo uzmustas Gleiviaus'
-    creeper: '&f{player} Susprogo'
-    enderman: '&f{player} buvo uzmustas Pabaigazmogio'
-    ghast: '&f{player} buvo uzmustas Smeklos'
-    blaze: '&f{player} buvo uzmustas Liepsnos'
-    enderdragon: '&f{player} buvo uzmustas Pabaigos drakono'
+    wolf: "&f{player} buvo uzmustas Vilko"
+    ocelot: "&f{player} buvo uzmustas Oceloto (Leopardo)"
+    zombie: "&f{player} buvo uzmustas Zombio"
+    skeleton: "&f{player} buvo nusautas Skeleto"
+    pigzombie: "&f{player} buvo uzmustas Kiaules-zombio"
+    spider: "&f{player} buvo uzmustas Voro"
+    cavespider: "&f{player} buvo uzmustas Urvinio voro"
+    silverfish: "&f{player} buvo uzmustas Sidabrinzuves"
+    slime: "&f{player} buvo uzmustas Gleiviaus"
+    creeper: "&f{player} Susprogo"
+    enderman: "&f{player} buvo uzmustas Pabaigazmogio"
+    ghast: "&f{player} buvo uzmustas Smeklos"
+    blaze: "&f{player} buvo uzmustas Liepsnos"
+    enderdragon: "&f{player} buvo uzmustas Pabaigos drakono"

@@ -12,7 +12,8 @@ public enum Language {
 	LITHUANIAN("Lietuva", "lt"),
 	NORWEGIAN("Norsk", "no"),
 	GERMAN("Deutsch", "de"),
-	PORTUGUESE("Portuguesa", "pt");
+	PORTUGUESE("Portuguesa", "pt"),
+	SLOVAK("Slovak", "sk");
 	//RUSSIAN("Pусский", "ru"),
 	//CHINESE("Chinese", "cn"),
 	

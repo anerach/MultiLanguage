@@ -54,6 +54,10 @@ public class LanguageListener extends MultiLanguageListener {
 			if(plugin.getConfig().getBoolean("messages.deaths.monsters"))
 				sendMessage("monsters.ocelot", player);
 			event.setDeathMessage(null);
+		} else if(event.getDeathMessage().toLowerCase().contains("pigman")) {
+			if(plugin.getConfig().getBoolean("messages.deaths.monsters"))
+				sendMessage("monsters.pigzombie", player);
+			event.setDeathMessage(null);
 		} else if(event.getDeathMessage().toLowerCase().contains("zombie")) {
 			if(plugin.getConfig().getBoolean("messages.deaths.monsters"))
 				sendMessage("monsters.zombie", player);
@@ -61,10 +65,6 @@ public class LanguageListener extends MultiLanguageListener {
 		} else if(event.getDeathMessage().toLowerCase().contains("skeleton")) {
 			if(plugin.getConfig().getBoolean("messages.deaths.monsters"))
 				sendMessage("monsters.skeleton", player);
-			event.setDeathMessage(null);
-		} else if(event.getDeathMessage().toLowerCase().contains("pigzombie")) {
-			if(plugin.getConfig().getBoolean("messages.deaths.monsters"))
-				sendMessage("monsters.pigzombie", player);
 			event.setDeathMessage(null);
 		} else if(event.getDeathMessage().toLowerCase().contains("cave spider")) {
 			if(plugin.getConfig().getBoolean("messages.deaths.monsters"))
