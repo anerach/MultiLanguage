@@ -1,11 +1,10 @@
-package me.arno.multilanguage;
+package me.arno.multilanguage.listener;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerJoinEvent;
 
-import me.arno.multilanguage.listener.MultiLanguageListener;
 
 public class NoticeListener extends MultiLanguageListener {
 	

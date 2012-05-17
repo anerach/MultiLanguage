@@ -3,6 +3,7 @@ package me.arno.multilanguage;
 import java.io.IOException;
 import java.util.logging.Logger;
 
+import me.arno.multilanguage.listener.NoticeListener;
 import me.arno.multilanguage.managers.LanguageManager;
 import me.arno.multilanguage.managers.SettingsManager;
 import me.arno.multilanguage.schedules.Updates;
