@@ -1,4 +1,4 @@
-package me.plugin.multilanguage;
+package me.arno.multilanguage;
 
 /*
 * Copyright 2011 Tyler Blair. All rights reserved.
