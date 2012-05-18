@@ -18,7 +18,7 @@ public class CommandList extends MultiLanguageCommand {
 		
 		player.sendMessage(ChatColor.DARK_RED + "- Available Languages -");
 		for(Language lang : Language.values())
-			player.sendMessage(ChatColor.GOLD + lang.toString() + ChatColor.DARK_RED + " (" + lang.getExtension().toUpperCase() + ")");
+			player.sendMessage(ChatColor.GOLD + lang.getName() + ChatColor.DARK_RED + " (" + lang.getExtension().toUpperCase() + ")");
 		
 		return true;
 	}

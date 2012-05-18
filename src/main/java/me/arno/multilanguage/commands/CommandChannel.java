@@ -36,8 +36,8 @@ public class CommandChannel extends MultiLanguageCommand {
 					playerList += ", ";
 			}
 			
-			player.sendMessage(ChatColor.DARK_RED + "[" + language.toString() + "] " + localisation.getMessage("channel.players"));
-			player.sendMessage(ChatColor.DARK_RED + "[" + language.toString() + "] " + ChatColor.GOLD + playerList);
+			player.sendMessage(ChatColor.DARK_RED + "[" + language.getName() + "] " + localisation.getMessage("channel.players"));
+			player.sendMessage(ChatColor.DARK_RED + "[" + language.getName() + "] " + ChatColor.GOLD + playerList);
 		} else {
 			localisation.sendMessage(player, "channel.toggle-off");
 			sendChannelMessage(localisation.getMessage("channel.leave", player), null, language);

@@ -69,9 +69,9 @@ public class MultiLanguageCommand {
 	public void sendChannelMessage(String msg, Player sender, Language language) {
 		for(String player : getChannelManager().getChannelPlayers(language)) {
 			if(sender == null)
-				Bukkit.getPlayer(player).sendMessage(ChatColor.DARK_RED + "[" + language.toString() + "] " + ChatColor.YELLOW + msg);
+				Bukkit.getPlayer(player).sendMessage(ChatColor.DARK_RED + "[" + language.getName() + "] " + ChatColor.YELLOW + msg);
 			else
-				Bukkit.getPlayer(player).sendMessage(ChatColor.DARK_RED + "[" + language.toString() + "]" + ChatColor.GOLD + "[" + sender.getName() + "] " + ChatColor.YELLOW + msg);
+				Bukkit.getPlayer(player).sendMessage(ChatColor.DARK_RED + "[" + language.getName() + "]" + ChatColor.GOLD + "[" + sender.getName() + "] " + ChatColor.YELLOW + msg);
 		}
 	}
 	

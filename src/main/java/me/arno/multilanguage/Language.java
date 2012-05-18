@@ -1,7 +1,5 @@
 package me.arno.multilanguage;
 
-import java.io.UnsupportedEncodingException;
-
 public enum Language {
 	ENGLISH("English", "eng"),
 	DUTCH("Nederlands", "nl"),
@@ -13,9 +11,9 @@ public enum Language {
 	NORWEGIAN("Norsk", "no"),
 	GERMAN("Deutsch", "de"),
 	PORTUGUESE("Portuguesa", "pt"),
+	RUSSIAN("Pусский", "ru"),
+	CHINESE("Chinese", "cn"),
 	SLOVAK("Slovak", "sk");
-	//RUSSIAN("Pусский", "ru"),
-	//CHINESE("Chinese", "cn"),
 	
 	String extension;
 	String name;
@@ -25,11 +23,11 @@ public enum Language {
 		this.name = name;
 	}
 	
-	@Override
-	public String toString() {
+	public String getName() {
 		try {
-			return new String(name.getBytes("ISO-8859-1"), "UTF-8"); //ISO-8859-1
-		} catch (UnsupportedEncodingException e) {
+			//return new String(name.getBytes("ISO-8859-1"), "UTF-8"); //ISO-8859-1
+			return name;
+		} catch (Exception e) { // UnsupportedEncoding
 			e.printStackTrace();
 		}
 		return null;
@@ -40,11 +38,8 @@ public enum Language {
 	}
 	
 	public static Language getLanguage(String str) {
-		if(Language.valueOf(str) != null)
-			return Language.valueOf(str);
-		
 		for(Language lang : Language.values()) {
-			if(str.equalsIgnoreCase(lang.name()) || str.equalsIgnoreCase(lang.toString()) || str.equalsIgnoreCase(lang.getExtension())) {
+			if(str.equalsIgnoreCase(lang.name()) || str.equalsIgnoreCase(lang.getName()) || str.equalsIgnoreCase(lang.getExtension())) {
 				return lang;
 			}
 		}

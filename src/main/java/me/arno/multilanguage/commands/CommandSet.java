@@ -16,9 +16,9 @@ public class CommandSet extends MultiLanguageCommand {
 		if(args.length > 1 || args.length < 1)
 			return false;
 		
-		Language language = Language.getLanguage(args[1]);
+		Language language = Language.getLanguage(args[0]);
 		if(getLanguageManager().setPlayerLanguage(player, language)) {
-			player.sendMessage(ChatColor.BLUE + "You've changed your language to " + ChatColor.GOLD + language.toString());
+			player.sendMessage(ChatColor.BLUE + "You've changed your language to " + ChatColor.GOLD + language.getName());
 		} else {
 			player.sendMessage(ChatColor.BLUE + "You've entered an incorrect language");
 		}

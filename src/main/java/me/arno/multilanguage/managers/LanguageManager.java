@@ -45,7 +45,7 @@ public class LanguageManager {
 	}
 	
 	public Language getPlayerLanguage(String player) {
-		if(playerLanguages.containsKey(player))
+		if(!playerLanguages.containsKey(player))
 			playerLanguages.put(player, MultiLanguage.plugin.getSettingsManager().getDefaultLanguage());
 		
 		return playerLanguages.get(player);
@@ -53,6 +53,9 @@ public class LanguageManager {
 	
 	public void loadLanguages() {
 		try {
+			if(!languageFile.exists())
+				languageFile.createNewFile();
+			
 			BufferedReader in = new BufferedReader(new FileReader(languageFile));
 			
 			String currentLine;
