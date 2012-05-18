@@ -2,11 +2,14 @@ package me.arno.multilanguage.commands;
 
 import java.util.logging.Logger;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.entity.Player;
 
+import me.arno.multilanguage.Language;
 import me.arno.multilanguage.MultiLanguage;
+import me.arno.multilanguage.managers.ChannelManager;
 import me.arno.multilanguage.managers.LanguageManager;
 import me.arno.multilanguage.managers.SettingsManager;
 
@@ -46,6 +49,10 @@ public class MultiLanguageCommand {
 		return plugin.getSettingsManager();
 	}
 	
+	public ChannelManager getChannelManager() {
+		return plugin.getChannelManager();
+	}
+	
 	public Boolean hasPermission(Player player) {
 		if(player == null && console)
 			return true;
@@ -57,6 +64,15 @@ public class MultiLanguageCommand {
 			return player.isOp();
 		
 		return false;
+	}
+	
+	public void sendChannelMessage(String msg, Player sender, Language language) {
+		for(String player : getChannelManager().getChannelPlayers(language)) {
+			if(sender == null)
+				Bukkit.getPlayer(player).sendMessage(ChatColor.DARK_RED + "[" + language.toString() + "] " + ChatColor.YELLOW + msg);
+			else
+				Bukkit.getPlayer(player).sendMessage(ChatColor.DARK_RED + "[" + language.toString() + "]" + ChatColor.GOLD + "[" + sender.getName() + "] " + ChatColor.YELLOW + msg);
+		}
 	}
 	
 	public void setCommandUsage(String usage) {

@@ -14,7 +14,7 @@ public enum Language {
 	GERMAN("Deutsch", "de"),
 	PORTUGUESE("Portuguesa", "pt"),
 	SLOVAK("Slovak", "sk");
-	//RUSSIAN("PÑƒÑ�Ñ�ÐºÐ¸Ð¹", "ru"),
+	//RUSSIAN("Pусский", "ru"),
 	//CHINESE("Chinese", "cn"),
 	
 	String extension;
@@ -25,7 +25,8 @@ public enum Language {
 		this.name = name;
 	}
 	
-	public String getName() {
+	@Override
+	public String toString() {
 		try {
 			return new String(name.getBytes("ISO-8859-1"), "UTF-8"); //ISO-8859-1
 		} catch (UnsupportedEncodingException e) {
@@ -43,7 +44,7 @@ public enum Language {
 			return Language.valueOf(str);
 		
 		for(Language lang : Language.values()) {
-			if(str.equalsIgnoreCase(lang.name()) || str.equalsIgnoreCase(lang.getName()) || str.equalsIgnoreCase(lang.getExtension())) {
+			if(str.equalsIgnoreCase(lang.name()) || str.equalsIgnoreCase(lang.toString()) || str.equalsIgnoreCase(lang.getExtension())) {
 				return lang;
 			}
 		}

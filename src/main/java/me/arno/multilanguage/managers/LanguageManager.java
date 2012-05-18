@@ -28,6 +28,18 @@ public class LanguageManager {
 		log = MultiLanguage.plugin.log;
 	}
 	
+	public boolean setPlayerLanguage(Player player, Language language) {
+		return setPlayerLanguage(player.getName(), language);
+	}
+	
+	public boolean setPlayerLanguage(String player, Language language) {
+		if(language == null)
+			return false;
+		
+		playerLanguages.put(player, language);
+		return true;
+	}
+	
 	public Language getPlayerLanguage(Player player) {
 		return getPlayerLanguage(player.getName());
 	}

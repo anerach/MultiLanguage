@@ -5,6 +5,7 @@ import java.util.logging.Logger;
 
 import me.arno.multilanguage.listener.NoticeListener;
 import me.arno.multilanguage.listener.TranslationListener;
+import me.arno.multilanguage.managers.ChannelManager;
 import me.arno.multilanguage.managers.LanguageManager;
 import me.arno.multilanguage.managers.SettingsManager;
 import me.arno.multilanguage.schedules.Updates;
@@ -15,9 +16,10 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class MultiLanguage extends JavaPlugin {
 	public static MultiLanguage plugin;
 	public Logger log;
-	
-	private LanguageManager languageManager;
+
 	private SettingsManager settingsManager;
+	private LanguageManager languageManager;
+	private ChannelManager channelManager;
 	
 	public String newVersion;
 	public String currentVersion;
@@ -30,6 +32,10 @@ public class MultiLanguage extends JavaPlugin {
 	
 	public SettingsManager getSettingsManager() {
 		return settingsManager;
+	}
+	
+	public ChannelManager getChannelManager() {
+		return channelManager;
 	}
 	
 	private void loadConfiguration() {
@@ -58,7 +64,9 @@ public class MultiLanguage extends JavaPlugin {
 		plugin = this;
 		log = getLogger();
 		
+		settingsManager = new SettingsManager();
 		languageManager = new LanguageManager();
+		channelManager = new ChannelManager();
 		
 		log.info("Loading configuration");
 		loadConfiguration();
