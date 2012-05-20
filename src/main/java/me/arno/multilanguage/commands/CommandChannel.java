@@ -32,7 +32,7 @@ public class CommandChannel extends MultiLanguageCommand {
 			
 			for(int i=0;i<players.size();i++) {
 				playerList += players.get(i);
-				if(players.size() == i+1)
+				if(players.size() != i+1)
 					playerList += ", ";
 			}
 			

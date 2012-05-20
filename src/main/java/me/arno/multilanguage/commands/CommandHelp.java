@@ -16,10 +16,10 @@ public class CommandHelp extends MultiLanguageCommand {
 			return false;
 		
 		player.sendMessage(ChatColor.DARK_RED + "MultiLanguage Commands" + ChatColor.GRAY + "--------------------------");
-		player.sendMessage(ChatColor.GOLD + addSpaces("/ml help", 100) + ChatColor.BLUE + "Shows information about the commands");
-		player.sendMessage(ChatColor.GOLD + addSpaces("/ml set <language>", 100) + ChatColor.BLUE + "Changes your language");
-		player.sendMessage(ChatColor.GOLD + addSpaces("/ml list", 100) + ChatColor.BLUE + "Shows a list of all the available languages");
-		player.sendMessage(ChatColor.GOLD + addSpaces("/ml channel", 100) + ChatColor.BLUE + "Joins the channel of your current language");
+		player.sendMessage(ChatColor.GOLD + addSpaces("/ml help", 110) + ChatColor.BLUE + "Shows information about the commands");
+		player.sendMessage(ChatColor.GOLD + addSpaces("/ml set <language>", 110) + ChatColor.BLUE + "Changes your language");
+		player.sendMessage(ChatColor.GOLD + addSpaces("/ml list", 110) + ChatColor.BLUE + "Shows a list of all the available languages");
+		player.sendMessage(ChatColor.GOLD + addSpaces("/ml channel", 110) + ChatColor.BLUE + "Joins your language's channel");
 		return true;
 	}
 	

@@ -1,5 +1,6 @@
 package me.arno.multilanguage.managers;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -10,6 +11,12 @@ import me.arno.multilanguage.Language;
 public class ChannelManager {
 	private HashMap<Language, List<String>> channels = new HashMap<Language, List<String>>();
 	private HashMap<String, Language> playerChannels = new HashMap<String, Language>();
+	
+	public ChannelManager() {
+		for(Language language : Language.values()) {
+			channels.put(language, new ArrayList<String>());
+		}
+	}
 	
 	public List<String> getChannelPlayers(Language language) {
 		return channels.get(language);
