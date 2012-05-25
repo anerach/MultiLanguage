@@ -13,7 +13,7 @@ import me.arno.multilanguage.Localisation;
 
 public class TranslationListener extends MultiLanguageListener {
 	
-	@EventHandler
+	@EventHandler(ignoreCancelled = true)
 	public void onPlayerJoin(PlayerJoinEvent event) {
 		Player player = event.getPlayer();
 		Language language = getLanguageManager().getPlayerLanguage(player);
@@ -27,7 +27,7 @@ public class TranslationListener extends MultiLanguageListener {
 		}
 	}
 	
-	@EventHandler
+	@EventHandler(ignoreCancelled = true)
 	public void onPlayerQuit(PlayerQuitEvent event) {
 		if(getSettingsManager().isLogoutTranslationEnabled()) {
 			sendMessage("message.logout", event.getPlayer());
@@ -35,7 +35,7 @@ public class TranslationListener extends MultiLanguageListener {
 		}
 	}
 	
-	@EventHandler
+	@EventHandler(ignoreCancelled = true)
 	public void onPlayerKick(PlayerKickEvent event) {
 		if(getSettingsManager().isLogoutTranslationEnabled()) {
 			sendMessage("message.logout", event.getPlayer());
@@ -43,7 +43,7 @@ public class TranslationListener extends MultiLanguageListener {
 		}
 	}
 	
-	@EventHandler
+	@EventHandler(ignoreCancelled = true)
 	public void onPlayerDeath(PlayerDeathEvent event) {
 		Player player = event.getEntity();
 		event.getDeathMessage();

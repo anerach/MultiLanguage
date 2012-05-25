@@ -36,7 +36,7 @@ public class MultiLanguageListener implements Listener {
 		
 		for(Player p : Bukkit.getServer().getOnlinePlayers()) {
 			localisation = new Localisation(getLanguageManager().getPlayerLanguage(p));
-			localisation.sendMessage(player, msg);
+			localisation.sendMessage(p, player, msg);
 		}
 	}
 	

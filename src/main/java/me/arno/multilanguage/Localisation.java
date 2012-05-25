@@ -28,12 +28,16 @@ public class Localisation {
 		}
 	}
 	
-	public void sendMessage(Player player, String message) {
-		sendMessage(player, message, null);
+	public void sendMessage(Player receiver, String message) {
+		sendMessage(receiver, receiver, message, null);
 	}
 	
-	public void sendMessage(Player player, String message, HashMap<String, String> args) {
-		player.sendMessage(getMessage(message, player, args));
+	public void sendMessage(Player receiver, Player player, String message) {
+		sendMessage(receiver, player, message, null);
+	}
+	
+	public void sendMessage(Player receiver, Player player, String message, HashMap<String, String> args) {
+		receiver.sendMessage(getMessage(message, player, args));
 	}
 	
 	public String getMessage(String message) {
