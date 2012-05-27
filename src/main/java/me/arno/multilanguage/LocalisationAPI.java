@@ -27,6 +27,8 @@ public class LocalisationAPI {
 	public LocalisationAPI(String plugin) {
 		this.multiLanguage = MultiLanguage.plugin;
 		this.localisationDirectory = new File(MultiLanguage.plugin.getDataFolder() + File.separator + "plugins" + File.separator + plugin);
+		if(!localisationDirectory.exists())
+			localisationDirectory.mkdirs();
 	}
 	
 	public void addLanguage(Language language, InputStream resource) throws IOException {
