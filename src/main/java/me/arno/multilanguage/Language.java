@@ -1,7 +1,7 @@
 package me.arno.multilanguage;
 
 public enum Language {
-	ENGLISH("English", "eng"),
+	ENGLISH("English", "en"),
 	DUTCH("Nederlands", "nl"),
 	SPANISH("Espanol", "es"),
 	DANISH("Dansk", "dk"),
@@ -24,13 +24,7 @@ public enum Language {
 	}
 	
 	public String getName() {
-		try {
-			//return new String(name.getBytes("ISO-8859-1"), "UTF-8"); //ISO-8859-1
-			return name;
-		} catch (Exception e) { // UnsupportedEncoding
-			e.printStackTrace();
-		}
-		return null;
+		return name;
 	}
 	
 	public String getExtension() {
