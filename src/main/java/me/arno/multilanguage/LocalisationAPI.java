@@ -14,8 +14,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
 public class LocalisationAPI {
-	private final File localisationDirectory;
 	private final MultiLanguage multiLanguage;
+	private final File localisationDirectory;
 	
 	private Language defaultLanguage;
 	private HashMap<String, File> languageFiles = new HashMap<String, File>();
@@ -29,8 +29,8 @@ public class LocalisationAPI {
 		this.localisationDirectory = new File(MultiLanguage.plugin.getDataFolder() + File.separator + "plugins" + File.separator + plugin);
 	}
 	
-	public void addLanguage(Language language, InputStream resource) {
-		addLanguage(language, resource);
+	public void addLanguage(Language language, InputStream resource) throws IOException {
+		addLanguage(language, resource, false);
 	}
 	
 	public void addLanguage(Language language, InputStream resource, boolean defaultLanguage) throws IOException {
@@ -128,6 +128,8 @@ public class LocalisationAPI {
 		
 		if(player != null) {
 			msg = msg.replaceAll("\\{player}", player.getName());
+			msg = msg.replaceAll("\\{health}", Integer.toString(player.getHealth()));
+			msg = msg.replaceAll("\\{hunger}", Integer.toString(player.getFoodLevel()));
 			msg = msg.replaceAll("\\{level}", Integer.toString(player.getLevel()));
 			msg = msg.replaceAll("\\{exp}", Integer.toString(player.getTotalExperience()));
 			msg = msg.replaceAll("\\{language}", language.getName());
