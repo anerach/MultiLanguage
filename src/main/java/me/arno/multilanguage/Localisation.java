@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -28,16 +29,31 @@ public class Localisation {
 		}
 	}
 	
-	public void sendMessage(Player receiver, String message) {
-		sendMessage(receiver, receiver, message, null);
+	public static void sendMessage(Player receiver, String message) {
+		sendMessage(receiver, message, receiver, null);
 	}
 	
-	public void sendMessage(Player receiver, Player player, String message) {
-		sendMessage(receiver, player, message, null);
+	public static void sendMessage(Player receiver, String message, Player player) {
+		sendMessage(receiver, message, player, null);
 	}
 	
-	public void sendMessage(Player receiver, Player player, String message, HashMap<String, String> args) {
-		receiver.sendMessage(getMessage(message, player, args));
+	public static void sendMessage(Player receiver, String message, Player player, HashMap<String, String> args) {
+		Localisation localisation = new Localisation(MultiLanguage.plugin.getLanguageManager().getPlayerLanguage(receiver));
+		receiver.sendMessage(localisation.getMessage(message, player, args));
+	}
+	
+	public static void sendGlobalMessage(String message) {
+		sendGlobalMessage(message, null, null);
+	}
+	
+	public static void sendGlobalMessage(String message, Player player) {
+		sendGlobalMessage(message, player, null);
+	}
+	
+	public static void sendGlobalMessage(String message, Player player, HashMap<String, String> args) {
+		for(Player p : Bukkit.getServer().getOnlinePlayers()) {
+			sendMessage(p, message, player, args);
+		}
 	}
 	
 	public String getMessage(String message) {

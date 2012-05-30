@@ -1,7 +1,6 @@
 package me.arno.multilanguage.listener;
 
 import me.arno.multilanguage.Language;
-import me.arno.multilanguage.Localisation;
 import me.arno.multilanguage.MultiLanguage;
 import me.arno.multilanguage.managers.ChannelManager;
 import me.arno.multilanguage.managers.LanguageManager;
@@ -29,15 +28,6 @@ public class MultiLanguageListener implements Listener {
 	
 	public ChannelManager getChannelManager() {
 		return MultiLanguage.plugin.getChannelManager();
-	}
-	
-	public void sendMessage(String msg, Player player) {
-		Localisation localisation;
-		
-		for(Player p : Bukkit.getServer().getOnlinePlayers()) {
-			localisation = new Localisation(getLanguageManager().getPlayerLanguage(p));
-			localisation.sendMessage(p, player, msg);
-		}
 	}
 	
 	public void sendChannelMessage(String msg, Player sender, Language language) {

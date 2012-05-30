@@ -24,7 +24,7 @@ public class CommandChannel extends MultiLanguageCommand {
 		if(!getChannelManager().isPlayerInChannel(player)) {
 			getChannelManager().addChannelPlayer(player, language);
 		
-			localisation.sendMessage(player, "channel.toggle-on");
+			Localisation.sendMessage(player, "channel.toggle-on");
 			sendChannelMessage(localisation.getMessage("channel.join", player), null, language);
 			
 			List<String> players = getChannelManager().getChannelPlayers(language);
@@ -39,7 +39,7 @@ public class CommandChannel extends MultiLanguageCommand {
 			player.sendMessage(ChatColor.DARK_RED + "[" + language.getName() + "] " + localisation.getMessage("channel.players"));
 			player.sendMessage(ChatColor.DARK_RED + "[" + language.getName() + "] " + ChatColor.GOLD + playerList);
 		} else {
-			localisation.sendMessage(player, "channel.toggle-off");
+			Localisation.sendMessage(player, "channel.toggle-off");
 			sendChannelMessage(localisation.getMessage("channel.leave", player), null, language);
 			getChannelManager().removePlayerFromChannel(player, language);
 		}
