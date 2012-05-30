@@ -18,7 +18,7 @@ public class MultiLanguageCommand {
 	public final Logger log;
 	
 	public final String permission;
-	public final Boolean console;
+	public final boolean console;
 	
 	public String usage;
 	
@@ -54,16 +54,12 @@ public class MultiLanguageCommand {
 	}
 	
 	public Boolean hasPermission(Player player) {
-		if(player == null && console)
+		if(player == null)
+			return console;
+		else if(permission == null)
 			return true;
-		else if(player == null && console == false)
-			return false;
-		else if(permission != null && player != null)
-			return player.hasPermission(permission);
-		else if(player != null)
-			return player.isOp();
 		
-		return false;
+		return (player.hasPermission(permission) || player.isOp());
 	}
 	
 	public void sendChannelMessage(String msg, Player sender, Language language) {
