@@ -1,6 +1,6 @@
 name: MultiLanguage
 main: me.arno.multilanguage.MultiLanguage
-version: 2.0.0
+version: 2.0.1
 author: Anerach
 description: >
             A multi-language support plugin for bukkit.
