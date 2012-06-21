@@ -13,7 +13,7 @@ public enum Language {
 	PORTUGUESE("Portuguesa", "pt"),
 	RUSSIAN("Pусский", "ru"),
 	CHINESE("Chinese", "cn"),
-	SLOVAK("Slovak", "sk"),
+	SLOVAK("Slovenský", "sk"),
 	SWEDISH("Svenska", "swe"),
 	FRENCH("Français", "fr");
 	
