@@ -15,7 +15,8 @@ public enum Language {
 	CHINESE("Chinese", "cn"),
 	SLOVAK("Slovenský", "sk"),
 	SWEDISH("Svenska", "swe"),
-	FRENCH("Français", "fr");
+	FRENCH("Français", "fr"),
+	CZECH("Czech", "cz");
 	
 	String extension;
 	String name;
