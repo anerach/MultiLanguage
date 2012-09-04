@@ -4,8 +4,8 @@ message:
     logout: "&e{player} har gått ut av spillet"
 channel:
     players: "&eConcurrent players in this channel"
-    toggle-on: "&9Channel chat is now on"
-    toggle-off: "&9Channel chat is now off"
+    toggle-on: "&9Kanal snakk er nå på"
+    toggle-off: "&9Kanal snakk er nå av"
     join: "&e{player} joined the channel"
     leave: "&e{player} left the channel"
 deaths:
