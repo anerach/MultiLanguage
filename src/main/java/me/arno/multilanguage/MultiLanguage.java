@@ -140,15 +140,14 @@ public class MultiLanguage extends JavaPlugin {
 		
 		MultiLanguageCommand command = new MultiLanguageCommand();
 		
-		if(args[0].equalsIgnoreCase("set")) {
+		if(args[0].equalsIgnoreCase("set"))
 			command = new CommandSet();
-		} else if(args[0].equalsIgnoreCase("list")) {
+		else if(args[0].equalsIgnoreCase("list"))
 			command = new CommandList();
-		} else if(args[0].equalsIgnoreCase("help")) {
+		else if(args[0].equalsIgnoreCase("help"))
 			command = new CommandHelp();
-		} else if(args[0].equalsIgnoreCase("ch") || args[0].equalsIgnoreCase("channel")) {
+		else if(args[0].equalsIgnoreCase("ch") || args[0].equalsIgnoreCase("channel"))
 			command = new CommandChannel();
-		}
 		
 		if(!command.hasPermission(player)) {
 			player.sendMessage("You don't have the permission for this command");
