@@ -23,7 +23,7 @@ monsters:
     ocelot: "&fHrac/ka {player} byl/a zabit/a Ocelotem"
     zombie: "&fHrac/ka {player} byl/a zabit/a Zombiem"
     skeleton: "&fHrac/ka {player} byl/a zabit/a Skeletonem"
-    pigzombie: "&fHrac/ka {player} byl/a zabit/a Prasecím Zombiekem"
+    pigzombie: "&fHrac/ka {player} byl/a zabit/a PrasecÃ­m Zombiekem"
     spider: "&fHrac/ka {player} byl/a zabit/a Pavoukem"
     cavespider: "&fHrac/ka {player} byl/a zabit/a Jeskynnim Pavoukem"
     silverfish: "&fHrac/ka {player} byl/a zabit/a Stribrnou Rybou"
