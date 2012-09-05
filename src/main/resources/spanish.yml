@@ -3,11 +3,11 @@ message:
     login: "&e{player} entró al juego"
     logout: "&e{player} salió del juego"
 channel:
-    players: "&eConcurrent players in this channel"
-    toggle-on: "&9Channel chat is now on"
-    toggle-off: "&9Channel chat is now off"
-    join: "&e{player} joined the channel"
-    leave: "&e{player} left the channel"
+    players: "Hay &eConcurrent jugadores en este canal"
+    toggle-on: "El chat de &9Channel está ahora activado"
+    toggle-off: "El chat de &9Channel está ahora desactivado"
+    join: "&e{player} entró al canal"
+    leave: "&e{player} salió del canal"
 deaths:
     drowning: "&f{player} ahogado"
     suffocation: "&f{player} asfixiado"
@@ -20,7 +20,7 @@ deaths:
     pvp: "&f{player} fue asesinado por {killer}"
 monsters:
     wolf: "&f{player} fue matado por un Lobo"
-    ocelot: "&f{player} fue matado por un Ocelot"
+    ocelot: "&f{player} fue matado por un Jaguar"
     zombie: "&f{player} fue matado por un Zombie"
     skeleton: "&f{player} fue matado por un Esqueleto"
     pigzombie: "&f{player} fue matado por un Cerdo Zombie"
