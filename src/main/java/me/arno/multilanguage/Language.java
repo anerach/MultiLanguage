@@ -10,13 +10,14 @@ public enum Language {
 	LITHUANIAN("Lietuva", "lt"),
 	NORWEGIAN("Norsk", "no"),
 	GERMAN("Deutsch", "de"),
-	PORTUGUESE("Portuguesa", "pt"),
+	PORTUGUESE("Português", "pt"),
 	RUSSIAN("Pусский", "ru"),
 	CHINESE("Chinese", "cn"),
 	SLOVAK("Slovenský", "sk"),
 	SWEDISH("Svenska", "swe"),
 	FRENCH("Français", "fr"),
-	CZECH("Czech", "cz");
+	CZECH("Czech", "cz"),
+	BULGARIAN("Български", "bg");
 	
 	String extension;
 	String name;
