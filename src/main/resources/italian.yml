@@ -1,13 +1,13 @@
 message:
     language: "&6Benvenuto, {player}. La tua lingua attuale è: {language}"
-    login: "&e{player} si è unito alla partita."
-    logout: "&e{player} ha abbandonato la partita."
+    login: "&e{player} è entrato nel server"
+    logout: "&e{player} ha abbandonato il server"
 channel:
-    players: "&eConcurrent players in this channel"
-    toggle-on: "&9Channel chat is now on"
-    toggle-off: "&9Channel chat is now off"
-    join: "&e{player} joined the channel"
-    leave: "&e{player} left the channel"
+    players: "&eGiocatori momentaneamente in questo canale"
+    toggle-on: "&9Il canale chat ora è attivo"
+    toggle-off: "&9Il canale chat ora e deattivo"
+    join: "&e{player} si unisce al canale"
+    leave: "&e{player} abbandona il canale"
 deaths:
     drowning: "&f{player} è annegato"
     suffocation: "&f{player} si è soffocato"

@@ -14,7 +14,6 @@ import org.w3c.dom.NodeList;
 
 public class Updates implements Runnable {
 
-	@Override
 	public void run() {
 		Logger log = MultiLanguage.plugin.log;
 		try {
