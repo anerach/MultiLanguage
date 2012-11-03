@@ -18,6 +18,7 @@ public class CommandChannel extends MultiLanguageCommand {
 	public boolean execute(Player player, Command cmd, String[] args) {
 		if(args.length > 0)
 			return false;
+		
 		Language language = getLanguageManager().getPlayerLanguage(player);
 		Localisation localisation = new Localisation(language);
 		

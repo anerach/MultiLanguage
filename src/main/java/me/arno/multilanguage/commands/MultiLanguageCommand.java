@@ -18,27 +18,17 @@ public class MultiLanguageCommand {
 	public final Logger log;
 	
 	public final String permission;
-	public final boolean console;
 	
 	public String usage;
 	
 	public MultiLanguageCommand() {
-		this(null, false);
-	}
-	
-	public MultiLanguageCommand(boolean console) {
-		this(null, console);
+		this(null);
 	}
 	
 	public MultiLanguageCommand(String permission) {
-		this(permission, false);
-	}
-	
-	public MultiLanguageCommand(String permission, boolean console) {
 		this.plugin = MultiLanguage.plugin;
 		this.log = plugin.log;
 		this.permission = permission;
-		this.console = console;
 	}
 	
 	public LanguageManager getLanguageManager() {
@@ -54,9 +44,7 @@ public class MultiLanguageCommand {
 	}
 	
 	public Boolean hasPermission(Player player) {
-		if(player == null)
-			return console;
-		else if(permission == null)
+		if(permission == null)
 			return true;
 		
 		return (player.hasPermission(permission) || player.isOp());

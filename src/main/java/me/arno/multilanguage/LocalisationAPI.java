@@ -8,6 +8,7 @@ import java.util.Map.Entry;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -70,32 +71,32 @@ public class LocalisationAPI {
 		}
 	}
 	
-	public void sendMessage(Player player, String message) {
-		sendMessage(player, message, null);
+	public void sendMessage(CommandSender sender, String message) {
+		sendMessage(sender, message, null);
 	}
 	
-	public void sendMessage(Player player, String message, HashMap<String, String> args) {
-		player.sendMessage(getMessage(message, player, args));
+	public void sendMessage(CommandSender sender, String message, HashMap<String, String> args) {
+		sender.sendMessage(getMessage(message, sender, args));
 	}
 	
 	public String getMessage(String message) {
 		return getMessage(message, null, null);
 	}
 
-	public String getMessage(String message, Player player) {
-		return getMessage(message, player, null);
+	public String getMessage(String message, CommandSender sender) {
+		return getMessage(message, sender, null);
 	}
 
 	public String getMessage(String message, HashMap<String, String> args) {
 		return getMessage(message, null, args);
 	}
 	
-	public String getMessage(String message, Player player, HashMap<String, String> args) {
-		Language language = multiLanguage.getLanguageManager().getPlayerLanguage(player);
+	public String getMessage(String message, CommandSender sender, HashMap<String, String> args) {
+		Language language = multiLanguage.getLanguageManager().getPlayerLanguage(sender);
 		File langFile = languageFiles.get(defaultLanguage);
 		
-		if(languageFiles.containsKey(language))
-			langFile = languageFiles.get(language);
+		if(languageFiles.containsKey(language.getName().toLowerCase()))
+			langFile = languageFiles.get(language.getName().toLowerCase());
 		
 		String msg = YamlConfiguration.loadConfiguration(langFile).getString(message);
 
@@ -128,15 +129,19 @@ public class LocalisationAPI {
 		    }
 		}
 		
-		if(player != null) {
-			msg = msg.replaceAll("\\{player}", player.getName());
-			msg = msg.replaceAll("\\{health}", Integer.toString(player.getHealth()));
-			msg = msg.replaceAll("\\{hunger}", Integer.toString(player.getFoodLevel()));
-			msg = msg.replaceAll("\\{level}", Integer.toString(player.getLevel()));
-			msg = msg.replaceAll("\\{exp}", Integer.toString(player.getTotalExperience()));
+		if(sender != null) {
+			msg = msg.replaceAll("\\{player}", sender.getName());
 			msg = msg.replaceAll("\\{language}", language.getName());
-			if(player.getKiller() != null)
-				msg = msg.replaceAll("\\{killer}", player.getKiller().getName());
+			
+			if(sender instanceof Player) {
+				Player player = (Player) sender;
+				msg = msg.replaceAll("\\{health}", Integer.toString(player.getHealth()));
+				msg = msg.replaceAll("\\{hunger}", Integer.toString(player.getFoodLevel()));
+				msg = msg.replaceAll("\\{level}", Integer.toString(player.getLevel()));
+				msg = msg.replaceAll("\\{exp}", Integer.toString(player.getTotalExperience()));
+				if(player.getKiller() != null)
+					msg = msg.replaceAll("\\{killer}", player.getKiller().getName());
+			}
 		}
 		return msg;
 	}

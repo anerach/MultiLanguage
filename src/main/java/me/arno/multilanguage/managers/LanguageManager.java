@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.Map.Entry;
 import java.util.logging.Logger;
 
+import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -40,8 +41,8 @@ public class LanguageManager {
 		return true;
 	}
 	
-	public Language getPlayerLanguage(Player player) {
-		return getPlayerLanguage(player.getName());
+	public Language getPlayerLanguage(CommandSender sender) {
+		return getPlayerLanguage(sender.getName());
 	}
 	
 	public Language getPlayerLanguage(String player) {
