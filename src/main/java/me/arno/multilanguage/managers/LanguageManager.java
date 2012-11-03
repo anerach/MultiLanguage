@@ -98,7 +98,7 @@ public class LanguageManager {
 				File file = new File(languageFolder, language);
 				if(!file.exists()) {
 					FileConfiguration config = YamlConfiguration.loadConfiguration(file);
-					FileConfiguration ymlConfig = YamlConfiguration.loadConfiguration(MultiLanguage.plugin.getResource("resources/" + language));
+					FileConfiguration ymlConfig = YamlConfiguration.loadConfiguration(MultiLanguage.plugin.getResource(language));
 					config.setDefaults(ymlConfig);
 					config.options().copyDefaults(true);
 					config.save(file);

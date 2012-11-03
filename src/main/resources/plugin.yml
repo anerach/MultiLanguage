@@ -1,0 +1,14 @@
+name: ${project.name}
+main: me.arno.multilanguage.MultiLanguage
+version: ${project.version}
+author: Anerach
+description: >
+            A multi-language support plugin for bukkit.
+commands:
+    multilanguage:
+        description: Shows basic language information
+        aliases: [lang, language, mlang, ml]
+        usage: /<command>
+permissions:
+    multilanguage.notice:
+        description: A player with this permission will receive notifications from MultiLanguage
