@@ -91,6 +91,15 @@ public class TranslationListener extends MultiLanguageListener {
 		} else if(event.getDeathMessage().toLowerCase().contains("ender dragon") && getSettingsManager().isMonsterDeathTranslationEnabled()) {
 			Localisation.sendGlobalMessage("monsters.enderdragon", player);
 			event.setDeathMessage(null);
+		} else if(event.getDeathMessage().toLowerCase().contains("wither skeleton") && getSettingsManager().isMonsterDeathTranslationEnabled()) {
+			Localisation.sendGlobalMessage("monsters.witch", player);
+			event.setDeathMessage(null);
+		} else if(event.getDeathMessage().toLowerCase().contains("wither") && getSettingsManager().isMonsterDeathTranslationEnabled()) {
+			Localisation.sendGlobalMessage("monsters.wither", player);
+			event.setDeathMessage(null);
+		} else if(event.getDeathMessage().toLowerCase().contains("anvil") && getSettingsManager().isMonsterDeathTranslationEnabled()) {
+			Localisation.sendGlobalMessage("deaths.anvil", player);
+			event.setDeathMessage(null);
 		} else if(deathCause == DamageCause.DROWNING && getSettingsManager().isNaturalDeathTranslationEnabled()) {
 			Localisation.sendGlobalMessage("deaths.drowning", player);
 			event.setDeathMessage(null);
@@ -114,6 +123,9 @@ public class TranslationListener extends MultiLanguageListener {
 			event.setDeathMessage(null);
 		} else if(deathCause == DamageCause.CONTACT && getSettingsManager().isNaturalDeathTranslationEnabled()) {
 			Localisation.sendGlobalMessage("deaths.cactus", player);
+			event.setDeathMessage(null);
+		} else if(deathCause == DamageCause.WITHER && getSettingsManager().isNaturalDeathTranslationEnabled()) {
+			Localisation.sendGlobalMessage("deaths.wither", player);
 			event.setDeathMessage(null);
 		}
 	}

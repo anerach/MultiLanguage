@@ -18,6 +18,8 @@ deaths:
     fire: "&f{player} 炎によって死にました"
     cactus: "&f{player} はサボテンによって死にました"
     pvp: "&f{player} は {殺害者} によって殺されました"
+    wither: "&f{player} withered away"
+    anvil: "&f{player} was squashed by a falling anvil"
 monsters:
     wolf: "&f{player} は狼によって殺された"
     ocelot: "&f{player} はヤマネコによって殺されました"
@@ -33,3 +35,6 @@ monsters:
     ghast: "&f{player} はガストによって殺されました"
     blaze: "&f{player} はブレイズによって殺されました"
     enderdragon: "&f{player} エンダードラゴンによって殺されました"
+    wither: "&f{player} was slain by Wither"
+    witherskeleton: "&f{player} was slain by a Wither Skeleton"
+    witch: "&f{player} was killed by a Witch"

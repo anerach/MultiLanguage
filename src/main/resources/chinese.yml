@@ -18,6 +18,8 @@ deaths:
     fire: "&f{player} 燒死了"
     cactus: "&f{player} 被刺死了"
     pvp: "&f{player} 被 {killer} 殺死了 "
+    wither: "&f{player} withered away"
+    anvil: "&f{player} was squashed by a falling anvil"
 monsters:
     wolf: "&f{player} 被狼殺死了"
     ocelot: "&f{player} 被豹貓殺死了"
@@ -33,3 +35,6 @@ monsters:
     ghast: "&f{player} 被惡魂殺死了"
     blaze: "&f{player} 被烈焰人殺死了"
     enderdragon: "&f{player} 被末影龍殺死了"
+    wither: "&f{player} was slain by Wither"
+    witherskeleton: "&f{player} was slain by a Wither Skeleton"
+    witch: "&f{player} was killed by a Witch"

@@ -18,6 +18,8 @@ deaths:
     fire: "&fHrac/ka {player} uhorel/a"
     cactus: "&fHrac/ka {player} se snazil/a tancovat na kaktusu"
     pvp: "&fHrac/ka {player} byl/a zabit/a hracem/hrackou {killer}"
+    wither: "&f{player} withered away"
+    anvil: "&f{player} was squashed by a falling anvil"
 monsters:
     wolf: "&fHrac/ka {player} byl/a zabit/a Vlkem"
     ocelot: "&fHrac/ka {player} byl/a zabit/a Ocelotem"
@@ -33,3 +35,6 @@ monsters:
     ghast: "&fHrac/ka {player} byl/a zabit/a Ghastem"
     blaze: "&fHrac/ka {player} byl/a zabit/a Plamenakem"
     enderdragon: "&fHrac/ka {player} byl/a zabit/a Drakem z Enderu"
+    wither: "&f{player} was slain by Wither"
+    witherskeleton: "&f{player} was slain by a Wither Skeleton"
+    witch: "&f{player} was killed by a Witch"

@@ -2,6 +2,12 @@ message:
     language: "&6Witamy, {player}! Twoim aktualnym jezykiem jest: {language}"
     login: "&e{player} dołączył do gry"
     logout: "&e{player} opuścił grę"
+channel:
+    players: "&eConcurrent players in this channel"
+    toggle-on: "&9Channel chat is now on"
+    toggle-off: "&9Channel chat is now off"
+    join: "&e{player} joined the channel"
+    leave: "&e{player} left the channel"
 deaths:
     drowning: "&f{player} utonął"
     suffocation: "&f{player} udusił się"
@@ -12,6 +18,8 @@ deaths:
     fire: "&f{player} spalił się"
     cactus: "&f{player} umarł na śmierć"
     pvp: "&f{player} został zabity przez {killer}"
+    wither: "&f{player} withered away"
+    anvil: "&f{player} was squashed by a falling anvil"
 monsters:
     wolf: "&f{player} został zabity przez Wilka"
     ocelot: "&f{player} został zabity przez Ocelota"
@@ -27,3 +35,6 @@ monsters:
     ghast: "&f{player} został zabity przez Ghasta"
     blaze: "&f{player} został zabity przez Blaze'a"
     enderdragon: "&f{player} został zabity przez Smoka Enderu"
+    wither: "&f{player} was slain by Wither"
+    witherskeleton: "&f{player} was slain by a Wither Skeleton"
+    witch: "&f{player} was killed by a Witch"

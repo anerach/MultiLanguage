@@ -18,6 +18,8 @@ deaths:
     fire: "&f{player} sudege"
     cactus: "&f{player} mirtinai susibade"
     pvp: "&f{player} buvo nuzudytas zaidejo {killer}"
+    wither: "&f{player} withered away"
+    anvil: "&f{player} was squashed by a falling anvil"
 monsters:
     wolf: "&f{player} mire nuzudytas Vilko"
     ocelot: "&f{player} mire nuzudytas Oceloto"
@@ -33,3 +35,6 @@ monsters:
     ghast: "&f{player} mire nuzudytas Vaiduoklio"
     blaze: "&f{player} mire nuzudytas Ugnies pabaisos"
     enderdragon: "&f{player} mire nuzudytas Ender Drakono"
+    wither: "&f{player} was slain by Wither"
+    witherskeleton: "&f{player} was slain by a Wither Skeleton"
+    witch: "&f{player} was killed by a Witch"

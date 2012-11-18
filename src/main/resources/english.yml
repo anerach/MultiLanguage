@@ -18,6 +18,8 @@ deaths:
     fire: "&f{player} burnt to death"
     cactus: "&f{player} was pricked to death"
     pvp: "&f{player} was killed by {killer}"
+    wither: "&f{player} withered away"
+    anvil: "&f{player} was squashed by a falling anvil"
 monsters:
     wolf: "&f{player} was slain by a Wolf"
     ocelot: "&f{player} was slain by an Ocelot"
@@ -33,3 +35,6 @@ monsters:
     ghast: "&f{player} was slain by a Ghast"
     blaze: "&f{player} was slain by a Blaze"
     enderdragon: "&f{player} was slain by an Ender Dragon"
+    wither: "&f{player} was slain by Wither"
+    witherskeleton: "&f{player} was slain by a Wither Skeleton"
+    witch: "&f{player} was killed by a Witch"
