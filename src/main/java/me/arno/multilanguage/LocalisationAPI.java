@@ -32,10 +32,25 @@ public class LocalisationAPI {
 			localisationDirectory.mkdirs();
 	}
 	
+	/**
+	 * Adds a new translation for your plugin
+	 * 
+	 * @param language The language
+	 * @param resource The yaml file as an {@link InputStream}
+	 * @throws IOException
+	 */
 	public void addLanguage(Language language, InputStream resource) throws IOException {
 		addLanguage(language, resource, false);
 	}
 	
+	/**
+	 * Adds a new translation for your plugin
+	 * 
+	 * @param language The language
+	 * @param resource The yaml file as an {@link InputStream}
+	 * @param defaultLanguage True to set this as the default language for your plugin
+	 * @throws IOException
+	 */
 	public void addLanguage(Language language, InputStream resource, boolean defaultLanguage) throws IOException {
 		File langFile = new File(localisationDirectory + File.separator + language.name().toLowerCase() + ".yml");
 		
@@ -53,46 +68,50 @@ public class LocalisationAPI {
 			this.defaultLanguage = language;
 	}
 	
+	/**
+	 * Send a message to everyone online in their selected language
+	 * 
+	 * @param message Message that everyone should receive
+	 */
 	public void sendGlobalMessage(String message) {
-		sendGlobalMessage(message, null, null);
-	}
-
-	public void sendGlobalMessage(String message, Player player) {
-		sendGlobalMessage(message, player, null);
+		sendGlobalMessage(message, null);
 	}
 	
+	/**
+	 * Send a message to everyone online in their selected language
+	 * 
+	 * @param message Message that everyone should receive
+	 * @param args Extra arguments that can be added to the message
+	 */
 	public void sendGlobalMessage(String message, HashMap<String, String> args) {
-		sendGlobalMessage(message, null, args);
-	}
-	
-	public void sendGlobalMessage(String message, Player player, HashMap<String, String> args) {
 		for(Player receiver : Bukkit.getOnlinePlayers()) {
-			receiver.sendMessage(getMessage(message, player, args));
+			receiver.sendMessage(getMessage(message, receiver, args));
 		}
 	}
 	
-	public void sendMessage(CommandSender sender, String message) {
-		sendMessage(sender, message, null);
+	/**
+	 * Send a message to a player in their selected language
+	 * 
+	 * @param sender Player that receives the message
+	 * @param message Message that the player receives
+	 */
+	public void sendMessage(CommandSender receiver, String message) {
+		sendMessage(receiver, message, null);
 	}
 	
-	public void sendMessage(CommandSender sender, String message, HashMap<String, String> args) {
-		sender.sendMessage(getMessage(message, sender, args));
+	/**
+	 * Send a message to a player in their selected language
+	 * 
+	 * @param sender Player that receives the message
+	 * @param message Message that the player receives
+	 * @param args Extra arguments that can be added to the message
+	 */
+	public void sendMessage(CommandSender receiver, String message, HashMap<String, String> args) {
+		receiver.sendMessage(getMessage(message, receiver, args));
 	}
 	
-	public String getMessage(String message) {
-		return getMessage(message, null, null);
-	}
-
-	public String getMessage(String message, CommandSender sender) {
-		return getMessage(message, sender, null);
-	}
-
-	public String getMessage(String message, HashMap<String, String> args) {
-		return getMessage(message, null, args);
-	}
-	
-	public String getMessage(String message, CommandSender sender, HashMap<String, String> args) {
-		Language language = multiLanguage.getLanguageManager().getPlayerLanguage(sender);
+	private String getMessage(String message, CommandSender receiver, HashMap<String, String> args) {
+		Language language = multiLanguage.getLanguageManager().getPlayerLanguage(receiver);
 		File langFile = languageFiles.get(defaultLanguage);
 		
 		if(languageFiles.containsKey(language.getName().toLowerCase()))
@@ -129,12 +148,12 @@ public class LocalisationAPI {
 		    }
 		}
 		
-		if(sender != null) {
-			msg = msg.replaceAll("\\{player}", sender.getName());
+		if(receiver != null) {
+			msg = msg.replaceAll("\\{player}", receiver.getName());
 			msg = msg.replaceAll("\\{language}", language.getName());
 			
-			if(sender instanceof Player) {
-				Player player = (Player) sender;
+			if(receiver instanceof Player) {
+				Player player = (Player) receiver;
 				msg = msg.replaceAll("\\{health}", Integer.toString(player.getHealth()));
 				msg = msg.replaceAll("\\{hunger}", Integer.toString(player.getFoodLevel()));
 				msg = msg.replaceAll("\\{level}", Integer.toString(player.getLevel()));
