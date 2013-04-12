@@ -4,8 +4,8 @@ message:
     logout: "&e{player} hat den Server verlassen"
 channel:
     players: "&eDerzeitige Spieler in diesem Channel"
-    toggle-on: "&9Der Channel Chat ist jetzt an"
-    toggle-off: "&9Der Channel Chat ist jetzt aus"
+    toggle-on: "&9Der Channel Chat ist nun an"
+    toggle-off: "&9Der Channel Chat ist nun aus"
     join: "&e{player} hat den Channel betreten"
     leave: "&e{player} hat den Channel verlassen"
 deaths:
@@ -18,8 +18,8 @@ deaths:
     fire: "&f{player} verbrannte"
     cactus: "&f{player} wurde zu Tode gestochen"
     pvp: "&f{player} wurde getoetet von {killer}"
-    wither: "&f{player} withered away"
-    anvil: "&f{player} was squashed by a falling anvil"
+    wither: "&f{player} verkümmerte"
+    anvil: "&f{player} wurde von einem fallenden Amboss zerquest"
 monsters:
     wolf: "&f{player} wurde von einem Wolf ermordet"
     ocelot: "&f{player} wurde von einem Ozelot ermordet"
@@ -35,6 +35,6 @@ monsters:
     ghast: "&f{player} wurde von einem Ghast ermordet"
     blaze: "&f{player} wurde von einer Lohe ermordet"
     enderdragon: "&f{player} wurde von einem Enderdrachen ermordet"
-    wither: "&f{player} was slain by Wither"
-    witherskeleton: "&f{player} was slain by a Wither Skeleton"
-    witch: "&f{player} was killed by a Witch"
+    wither: "&f{player} wurde von einem Verkümmerten zu Tode geschlagen"
+    witherskeleton: "&f{player} wurde von einem verkümmerten Skellett ermordet"
+    witch: "&f{player} wurde von einer Hexe getötet"
